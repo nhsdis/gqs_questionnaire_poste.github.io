@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Poste de travail</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <input id="case_1" type="checkbox" name="" onclick="evaluer()" value="">
+    <label for="">très bien</label><br><br>
+    <input id="case_2" type="checkbox" name="" onclick="evaluer()" value="">
+    <label for="">bien</label><br><br>
+    <input id="case_3" type="checkbox" name="" onclick="evaluer()" value="">
+    <label for="">juste bien</label><br><br>
+    <input id="case_4" type="checkbox" name="" onclick="evaluer()" value="">
+    <label for="">nul ...</label><br><br>
+    <div class="">
+      <h1>Loading</h1>
+      <progress id="niveau" style = "background-color: #0091EA;" value = "0" max = "100"/>
+    </div>
+    <div id="res_bien" style="display: none;" class="">
+      <span>🟢🟢 Bravo ! Vos conditions de travail sont supers ! 🟢🟢</span>
+    </div>
+    <div id="res_nul" style="display: none;" class="">
+      <span>🔴🔴 Et non mince ... C'est nul ! 🔴🔴</span>
+    </div>
+
+    <script type="text/javascript">
+
+      function evaluer(){
+        var niveau = document.getElementById("niveau");
+        var case_1 = document.getElementById("case_1");
+        var case_2 = document.getElementById("case_2");
+        var case_3 = document.getElementById("case_3");
+        var case_4 = document.getElementById("case_4");
+        if(case_1.checked && case_2.checked){
+          niveau.value = "100";
+          document.getElementById("res_bien").style.display = "flex";
+          document.getElementById("res_nul").style.display = "none";
+        } else if(case_3.checked){
+          niveau.value = "70";
+          document.getElementById("res_bien").style.display = "none";
+          document.getElementById("res_nul").style.display = "none";
+        } else {
+          niveau.value = "10";
+          document.getElementById("res_bien").style.display = "none";
+          document.getElementById("res_nul").style.display = "flex";
+        }
+      }
+    </script>
+  </body>
+</html>
