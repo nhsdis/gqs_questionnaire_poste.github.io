@@ -60,7 +60,7 @@
         <br><br>
         <div class="container">
           <div class="radio_container" style="width: 80%">
-            <h1 id="titre_params">Portez-vous des verres progressif ?</h1>
+            <h1 id="titre_params">Portez-vous des verres progressifs ?</h1>
             <input type="radio" name="verres_pro" id="verres_pro_oui" value="verres_pro_oui" onchange="def_params()">
             <label for="verres_pro_oui" style="width: 90%">Oui</label>
             <input type="radio" name="verres_pro" id="verres_pro_non" value="verres_pro_non" onchange="def_params()">
@@ -83,7 +83,7 @@
         <h2 for="" style="margin-bottom: 3%;" id="adapterQuestion1">1 • Votre écran est-il positionné en face de vous ?</h2>
         <div style="justify-content: space-between; display: flex;" class="">
           <img id="adapterImage1" src="images/face_ecran_1.png" style="display:inline-block; vertical-align:middle; margin-right: 10%;" height="150" width="180" alt="">
-          <img id="adapterImage2" src="images/face_ecran_2.png" style="display:none; vertical-align:middle; margin-right: 5%;" height="120" width="280" alt="">
+          <img id="adapterImage2" src="images/face_ecran_2.png" style="display:none; vertical-align:middle; margin-right: 5%;" height="120" width="170" alt="">
           <div class="radio_container">
             <input type="radio" name="face_ecran" id="face_ecran_oui" value="face_ecran_oui" onclick="evaluer()">
             <label for="face_ecran_oui">Oui</label>
@@ -163,7 +163,7 @@
         </div>
       </div>
       <div class="container">
-        <h2 for="" style="margin-bottom: 1%; margin-top: 3%;">6 • Votre souris est-elle positionnée à proximité du clavier ?</h2>
+        <h2 for="" style="margin-bottom: 1%; margin-top: 3%;">6 • Votre souris est-elle positionnée à proximité immédiate, devant vous ?</h2>
         <div style="justify-content: space-between; display: flex;" class="">
           <img src="images/souris_eloignee.png" style="display:inline-block; vertical-align:middle; margin-right: 15%;" height="140" width="190" alt="">
           <div class="radio_container">
@@ -203,25 +203,25 @@
           <section class="accordion">
             <input type="checkbox" name="collapse" id="handle1" onclick="gererParties(this.id)">
             <h2 class="handle">
-              <label for="handle1">Préservez vos yeux</label>
+              <label for="handle1">Bilan pour vos yeux</label>
             </h2>
             <div class="content">
               <section class="accordion" style="width: 95%; margin: 0 auto;">
                 <input type="checkbox" name="colla" id="handle11" onclick="gererSousParties(this.id)">
                 <h2 class="handle">
-                  <label id="qu3" for="handle11" class="label_sous_menu" style="text-align: left; padding: 5px; user-select: none;">Les fenêtres</label>
+                  <label id="qu3" for="handle11" class="label_sous_menu" style="text-align: left; padding: 5px; user-select: none; font-weight: bold;">Les fenêtres</label>
                 </h2>
                 <div class="content" style="border: 0px; padding: 0px;">
-                  <p id="informationsYeux1"></p>
+                  <p id="informationsYeux1" style="font-size: 17px;"></p>
                 </div>
               </section>
               <section class="accordion" style="width: 95%; margin: 0 auto;">
                 <input type="checkbox" name="colla" id="handle12" onclick="gererSousParties(this.id)">
                 <h2 class="handle">
-                  <label id="qu4" for="handle12" class="label_sous_menu" style="text-align: left; padding: 5px; user-select: none;">La lumière bleue</label>
+                  <label id="qu4" for="handle12" class="label_sous_menu" style="text-align: left; padding: 5px; user-select: none; font-weight: bold;">La lumière bleue</label>
                 </h2>
                 <div class="content" style="border: 0px; padding: 0px;">
-                  <p id="informationsYeux2"></p>
+                  <p id="informationsYeux2" style="font-size: 17px;"></p>
                 </div>
               </section>
             </div>
@@ -234,34 +234,34 @@
           <section class="accordion">
             <input type="checkbox" name="collapse" id="handle2" onclick="gererParties(this.id)">
             <h2 class="handle">
-              <label for="handle2">Préservez vos épaules</label>
+              <label for="handle2">Bilan pour vos épaules</label>
             </h2>
             <div class="content">
               <section class="accordion" style="width: 95%; margin: 0 auto;">
                 <input type="checkbox" name="colla" id="handle21" onclick="gererSousParties(this.id)">
                 <h2 class="handle">
-                  <label id="qu5" for="handle21" class="label_sous_menu" style="text-align: left; padding: 5px; user-select: none;">Vos avant bras</label>
+                  <label id="qu5" for="handle21" class="label_sous_menu" style="text-align: left; padding: 5px; user-select: none; font-weight: bold;">Vos avant bras</label>
                 </h2>
                 <div class="content" style="border: 0px; padding: 0px;">
-                  <p id="informationsEpaules1"></p>
+                  <p id="informationsEpaules1" style="font-size: 17px;"></p>
                 </div>
               </section>
               <section class="accordion" style="width: 95%; margin: 0 auto;">
                 <input type="checkbox" name="colla" id="handle22" onclick="gererSousParties(this.id)">
                 <h2 class="handle">
-                  <label id="qu6" for="handle22" class="label_sous_menu" style="text-align: left; padding: 5px; user-select: none;">Votre souris</label>
+                  <label id="qu6" for="handle22" class="label_sous_menu" style="text-align: left; padding: 5px; user-select: none; font-weight: bold;">Votre souris</label>
                 </h2>
                 <div class="content" style="border: 0px; padding: 0px;">
-                  <p id="informationsEpaules2"></p>
+                  <p id="informationsEpaules2" style="font-size: 17px;"></p>
                 </div>
               </section>
               <section class="accordion" style="width: 95%; margin: 0 auto;">
                 <input type="checkbox" name="colla" id="handle23" onclick="gererSousParties(this.id)">
                 <h2 class="handle">
-                  <label id="qu7" for="handle23" class="label_sous_menu" style="text-align: left; padding: 5px; user-select: none;">Votre clavier</label>
+                  <label id="qu7" for="handle23" class="label_sous_menu" style="text-align: left; padding: 5px; user-select: none; font-weight: bold;">Votre clavier</label>
                 </h2>
                 <div class="content" style="border: 0px; padding: 0px;">
-                  <p id="informationsEpaules3"></p>
+                  <p id="informationsEpaules3" style="font-size: 17px;"></p>
                 </div>
               </section>
             </div>
@@ -274,25 +274,25 @@
           <section class="accordion">
             <input type="checkbox" name="collapse" id="handle3" onclick="gererParties(this.id)">
             <h2 class="handle">
-              <label for="handle3">Préservez vos cervicales</label>
+              <label for="handle3">Bilan pour vos cervicales</label>
             </h2>
             <div class="content">
               <section class="accordion" style="width: 95%; margin: 0 auto;">
                 <input type="checkbox" name="colla" id="handle31" onclick="gererSousParties(this.id)">
                 <h2 class="handle">
-                  <label id="qu1" for="handle31" class="label_sous_menu" style="text-align: left; padding: 5px; user-select: none;">L'écran principal</label>
+                  <label id="qu1" for="handle31" class="label_sous_menu" style="text-align: left; padding: 5px; user-select: none; font-weight: bold;">L'écran principal</label>
                 </h2>
                 <div class="content" style="border: 0px; padding: 0px;">
-                  <p id="informationsCervicales1"></p>
+                  <p id="informationsCervicales1" style="font-size: 17px;"></p>
                 </div>
               </section>
               <section class="accordion" style="width: 95%; margin: 0 auto;">
                 <input type="checkbox" name="colla" id="handle32" onclick="gererSousParties(this.id)">
                 <h2 class="handle">
-                  <label id="qu2" for="handle32" class="label_sous_menu" style="text-align: left; padding: 5px; user-select: none;">Réglage de l'écran</label>
+                  <label id="qu2" for="handle32" class="label_sous_menu" style="text-align: left; padding: 5px; user-select: none; font-weight: bold;">Réglage de l'écran</label>
                 </h2>
                 <div class="content" style="border: 0px; padding: 0px;">
-                  <p id="informationsCervicales2"></p>
+                  <p id="informationsCervicales2" style="font-size: 17px;"></p>
                 </div>
               </section>
             </div>
@@ -519,39 +519,39 @@
         // Cervicales
         if(liste_scores[0][0] == 1){
           document.getElementById('qu1').style.color = '#D0342C';
-          document.getElementById('qu1').style.fontWeight = 'bold';
+          // document.getElementById('qu1').style.fontWeight = 'bold';
           document.getElementById('handle3').checked = true;
         }
         if(liste_scores[0][1] == 1){
           document.getElementById('qu2').style.color = '#D0342C';
-          document.getElementById('qu2').style.fontWeight = 'bold';
+          // document.getElementById('qu2').style.fontWeight = 'bold';
           document.getElementById('handle3').checked = true;
         }
         // Yeux
         if(liste_scores[1][0] == 1){
           document.getElementById('qu3').style.color = '#D0342C';
-          document.getElementById('qu3').style.fontWeight = 'bold';
+          // document.getElementById('qu3').style.fontWeight = 'bold';
           document.getElementById('handle1').checked = true;
         }
         if(liste_scores[1][1] == 1){
           document.getElementById('qu4').style.color = '#D0342C';
-          document.getElementById('qu4').style.fontWeight = 'bold';
+          // document.getElementById('qu4').style.fontWeight = 'bold';
           document.getElementById('handle1').checked = true;
         }
         // Epaules
         if(liste_scores[2][0] == 1){
           document.getElementById('qu5').style.color = '#D0342C';
-          document.getElementById('qu5').style.fontWeight = 'bold';
+          // document.getElementById('qu5').style.fontWeight = 'bold';
           document.getElementById('handle2').checked = true;
         }
         if(liste_scores[2][1] == 1){
           document.getElementById('qu6').style.color = '#D0342C';
-          document.getElementById('qu6').style.fontWeight = 'bold';
+          // document.getElementById('qu6').style.fontWeight = 'bold';
           document.getElementById('handle2').checked = true;
         }
         if(liste_scores[2][2] == 1){
           document.getElementById('qu7').style.color = '#D0342C';
-          document.getElementById('qu7').style.fontWeight = 'bold';
+          // document.getElementById('qu7').style.fontWeight = 'bold';
           document.getElementById('handle2').checked = true;
         }
 
@@ -745,10 +745,10 @@
         content: "⇩";
       }
       .accordion .handle .label_sous_menu:before {
-        content: "+";
+        content: "👁";
       }
       .accordion > input[type="checkbox"]:checked ~ .handle .label_sous_menu:before {
-        content: "-";
+        content: "⇩";
       }
       .accordion > input[type="checkbox"] {
         position: absolute;
