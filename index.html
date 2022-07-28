@@ -29,14 +29,30 @@
       </div>
     </div>
 
-    <div id='res_temps_reel' style="position: absolute; right: 3%; width: 20%;">
-      <img src="images/icone_cervicales_0.png" id="icone_res_cervicales" style="display:inline-block; vertical-align:middle; margin-right: 10%;" height="90" width="75" alt="">
-      <img src="images/icone_yeux_0.png" id="icone_res_yeux" style="display:inline-block; vertical-align:middle; margin-right: 10%;" height="75" width="100" alt="">
-      <img src="images/icone_epaules_0.png" id="icone_res_epaules" style="display:inline-block; vertical-align:middle;" height="90" width="95" alt="">
+    <div class="" style="position: absolute; right: 3%; margin-top: 2%; width: 25%;">
+      <div class="" style="position: absolute; bottom: -30%; left: 8%; display: flex; width: 80%; justify-content: space-around; align-items: center;">
+        <img id="icone_cervicales" src="images/icone_cervicales.png" style="opacity: 0; z-index: 100; margin-bottom: 2.5%;" height="80" width="70" alt="">
+        <img id="icone_yeux" src="images/icone_yeux.png" style="opacity: 0; z-index: 100; margin-top: 3%;" height="85" width="75" alt="">
+        <img id="icone_epaule" src="images/icone_epaule.png" style="opacity: 0; z-index: 100;" height="70" width="60" alt="">
+      </div>
+      <div class="container_progress">
+        <div class="progress-bar__container">
+          <div id="progression_barre" class="progress-bar"></div>
+          <h6 id="text_progression" style="width: 100%; text-align: center; opacity: 0.7; font-size: 20px; margin-top: 1%;" class="progress-bar__text">Réglage des paramètres ...</h6>
+        </div>
+        <h6 id="indic_progression" style="position: absolute; opacity: 0.7; font-size: 19px; color: grey; margin-top: 23%;" class="progress-bar__text">0 %</h6>
+      </div>
     </div>
 
-    <h1 style="text-align: center">📝 Évaluez votre poste de travail !</h1>
-    <h3 style="text-align: center">Questionnaire intéractif proposé par le GQS</h3>
+    <div class="" id="titre_accueil">
+      <h1 style="text-align: center">🖥️ Travail sur écran</h1>
+      <h2 style="text-align: center">Je m'auto-évalue</h2>
+    </div>
+
+    <div class="" style="display: none;" id="titre_bilan">
+      <h1 style="text-align: center">🖥️ Travail sur écran</h1>
+      <h2 style="text-align: center">Mon bilan :</h2>
+    </div>
     <br>
 
 
@@ -46,11 +62,10 @@
 
     <div id="partie_params">
       <br><br>
-      <h2 style="text-align: center">Avant tout, répondez à ces questions pour affiner l'évaluation :</h2>
       <div class="" style="">
         <div class="container">
           <div class="radio_container" style="width: 80%">
-            <h1 id="titre_params">Vous utilisez :</h1>
+            <h1 id="titre_params">Actuellement, j'utilise :</h1>
             <input type="radio" name="nb_ecrans" id="nb_ecrans_un" value="nb_ecrans_un" onchange="def_params()">
             <label for="nb_ecrans_un" style="width: 90%">Un seul écran</label>
             <input type="radio" name="nb_ecrans" id="nb_ecrans_plusieurs" value="nb_ecrans_plusieurs" onchange="def_params()">
@@ -60,7 +75,7 @@
         <br><br>
         <div class="container">
           <div class="radio_container" style="width: 80%">
-            <h1 id="titre_params">Portez-vous des verres progressifs ?</h1>
+            <h1 id="titre_params">Je porte des verres progressifs :</h1>
             <input type="radio" name="verres_pro" id="verres_pro_oui" value="verres_pro_oui" onchange="def_params()">
             <label for="verres_pro_oui" style="width: 90%">Oui</label>
             <input type="radio" name="verres_pro" id="verres_pro_non" value="verres_pro_non" onchange="def_params()">
@@ -68,6 +83,22 @@
           </div>
         </div>
       </div>
+
+      <!-- <div class="" style="">
+        <div style="position: absolute; top: 140px; left: 229px;" class="wrap">
+          <button style="z-index: 100; width: 20px; height: 20px;" class="button_res_mannequin"></button>
+        </div>
+        <div style="position: absolute; top: 250px; left: 229px;" class="wrap">
+          <button style="z-index: 100; width: 20px; height: 20px;" class="button_res_mannequin signal_alerte"></button>
+        </div>
+        <div style="position: absolute; top: 330px; left: 80px;" class="wrap">
+          <button style="z-index: 100; width: 20px; height: 20px;" class="button_res_mannequin"></button>
+        </div>
+        <div style="position: absolute; top: 330px; left: 380px;" class="wrap">
+          <button style="z-index: 100; width: 20px; height: 20px;" class="button_res_mannequin signal_danger"></button>
+        </div>
+        <img src="images/mannequin_buste.png" style="" height="700" width="500" alt="">
+      </div> -->
 
       <button type="button" name="button" id="valider_params" style="display: none;" onclick="commencer_questionnaire()">C'est parti !</button>
     </div>
@@ -77,8 +108,7 @@
     <!-- //// PARTIE CERVICALES ////-->
     <!-- ////////////////////////// -->
 
-    <fieldset id="partie_cervicales" style="display: none; margin: 0 auto;" class="">
-      <legend>Les cervicales</legend>
+    <fieldset id="partie_cervicales" style="display: none; margin: 0 auto; margin-top: 7%;" class="">
       <div class="container">
         <h2 for="" style="margin-bottom: 3%;" id="adapterQuestion1">1 • Votre écran est-il positionné en face de vous ?</h2>
         <div style="justify-content: space-between; display: flex;" class="">
@@ -114,8 +144,7 @@
     <!-- //// PARTIE YEUX ////-->
     <!-- //////////////////// -->
 
-    <fieldset id="partie_yeux" style="display: none; margin: 0 auto;" class="">
-      <legend>Les yeux</legend>
+    <fieldset id="partie_yeux" style="display: none; margin: 0 auto; margin-top: 7%;" class="">
       <div class="container">
         <h2 for="" style="margin-bottom: 3%;">3 • Votre écran est-il perpendiculaire aux fenêtres ?</h2>
         <div style="justify-content: space-between; display: flex;" class="">
@@ -148,8 +177,7 @@
     <!-- //// PARTIE EPAULES ////-->
     <!-- /////////////////////// -->
 
-    <fieldset id="partie_epaules" style="display: none; margin: 0 auto;" class="">
-      <legend>Les épaules</legend>
+    <fieldset id="partie_epaules" style="display: none; margin: 0 auto; margin-top: 7%;" class="">
       <div class="container">
         <h2 for="" style="margin-bottom: 1%;">5 • Vos avant-bras reposent-ils sur les accoudoirs ou sur le bureau ?</h2>
         <div style="justify-content: space-between; display: flex;" class="">
@@ -194,16 +222,27 @@
     <!-- ///////////////////////// -->
 
     <div id="partie_resultats" style="text-align: center; display: none; width: 100%;" class="">
-      <img src="images/mannequin_res.png" style="display:inline-block; vertical-align:middle;" height="35%" width="35%" alt="">
-      <div style="display:inline-block; vertical-align:middle; width: 50%;" class="">
+      <div class="" style="position: fixed; left: 50%; top: 50%; transform: translate(-130%, -50%);">
+        <div style="position: absolute; top: -180px; left: 222px;" class="wrap">
+          <button id="point_res_yeux" style="z-index: 100; width: 20px; height: 20px;" class="button_res_mannequin point_yeux" onclick="gererParties('handle1')"></button>
+        </div>
+        <div style="position: absolute; top: -70px; left: 222px;" class="wrap">
+          <button id="point_res_cervicales" style="z-index: 100; width: 20px; height: 20px;" class="button_res_mannequin point_cervicales" onclick="gererParties('handle3')"></button>
+        </div>
+        <div style="position: absolute; top: 10px; left: 73px;" class="wrap">
+          <button id="point_res_epaules" style="z-index: 100; width: 20px; height: 20px;" class="button_res_mannequin point_epaule" onclick="gererParties('handle2')"></button>
+        </div>
+        <div style="position: absolute; top: 10px; left: 373px;" class="wrap">
+          <button id="point_res_epaules2" style="z-index: 100; width: 20px; height: 20px;" class="button_res_mannequin point_epaule" onclick="gererParties('handle2')"></button>
+        </div>
+        <img src="images/mannequin_buste.png" style="" height="700" width="500" alt="">
+      </div>
+      <div style="display:inline-block; margin-left: 40%; margin-top: 5%; width: 50%;" class="">
         <div style="text-align: left; display: flex;" class="">
-          <div id="point_res_yeux" style="border: 2px solid grey; border-radius: 9999px; width: 30px; height: 30px; margin-top: 0.65%; text-align: center; display:inline-block; vertical-align:middle;" class="">
-            <span style="font-size: 25px; font-weight: bold;">1</span>
-          </div>
           <section class="accordion">
             <input type="checkbox" name="collapse" id="handle1" onclick="gererParties(this.id)">
             <h2 class="handle">
-              <label for="handle1">Bilan pour vos yeux</label>
+              <label for="handle1">Vos yeux</label>
             </h2>
             <div class="content">
               <section class="accordion" style="width: 95%; margin: 0 auto;">
@@ -228,13 +267,38 @@
           </section>
         </div>
         <div style="text-align: left; display: flex;" class="">
-          <div id="point_res_epaules" style="border: 2px solid grey; border-radius: 9999px; width: 30px; height: 30px; margin-top: 0.65%; text-align: center; display:inline-block; vertical-align:middle;" class="">
-            <span style="font-size: 25px; font-weight: bold;">2</span>
-          </div>
+          <section class="accordion">
+            <input type="checkbox" name="collapse" id="handle3" onclick="gererParties(this.id)">
+            <h2 class="handle">
+              <label for="handle3">Vos cervicales</label>
+            </h2>
+            <div class="content">
+              <section class="accordion" style="width: 95%; margin: 0 auto;">
+                <input type="checkbox" name="colla" id="handle31" onclick="gererSousParties(this.id)">
+                <h2 class="handle">
+                  <label id="qu1" for="handle31" class="label_sous_menu" style="text-align: left; padding: 5px; user-select: none; font-weight: bold;">L'écran principal</label>
+                </h2>
+                <div class="content" style="border: 0px; padding: 0px;">
+                  <p id="informationsCervicales1" style="font-size: 17px;"></p>
+                </div>
+              </section>
+              <section class="accordion" style="width: 95%; margin: 0 auto;">
+                <input type="checkbox" name="colla" id="handle32" onclick="gererSousParties(this.id)">
+                <h2 class="handle">
+                  <label id="qu2" for="handle32" class="label_sous_menu" style="text-align: left; padding: 5px; user-select: none; font-weight: bold;">Réglage de l'écran</label>
+                </h2>
+                <div class="content" style="border: 0px; padding: 0px;">
+                  <p id="informationsCervicales2" style="font-size: 17px;"></p>
+                </div>
+              </section>
+            </div>
+          </section>
+        </div>
+        <div style="text-align: left; display: flex;" class="">
           <section class="accordion">
             <input type="checkbox" name="collapse" id="handle2" onclick="gererParties(this.id)">
             <h2 class="handle">
-              <label for="handle2">Bilan pour vos épaules</label>
+              <label for="handle2">Vos épaules</label>
             </h2>
             <div class="content">
               <section class="accordion" style="width: 95%; margin: 0 auto;">
@@ -262,37 +326,6 @@
                 </h2>
                 <div class="content" style="border: 0px; padding: 0px;">
                   <p id="informationsEpaules3" style="font-size: 17px;"></p>
-                </div>
-              </section>
-            </div>
-          </section>
-        </div>
-        <div style="text-align: left; display: flex;" class="">
-          <div id="point_res_cervicales" style="border: 2px solid grey; border-radius: 9999px; width: 30px; height: 30px; margin-top: 0.65%; text-align: center; display:inline-block; vertical-align:middle;" class="">
-            <span style="font-size: 25px; font-weight: bold;">3</span>
-          </div>
-          <section class="accordion">
-            <input type="checkbox" name="collapse" id="handle3" onclick="gererParties(this.id)">
-            <h2 class="handle">
-              <label for="handle3">Bilan pour vos cervicales</label>
-            </h2>
-            <div class="content">
-              <section class="accordion" style="width: 95%; margin: 0 auto;">
-                <input type="checkbox" name="colla" id="handle31" onclick="gererSousParties(this.id)">
-                <h2 class="handle">
-                  <label id="qu1" for="handle31" class="label_sous_menu" style="text-align: left; padding: 5px; user-select: none; font-weight: bold;">L'écran principal</label>
-                </h2>
-                <div class="content" style="border: 0px; padding: 0px;">
-                  <p id="informationsCervicales1" style="font-size: 17px;"></p>
-                </div>
-              </section>
-              <section class="accordion" style="width: 95%; margin: 0 auto;">
-                <input type="checkbox" name="colla" id="handle32" onclick="gererSousParties(this.id)">
-                <h2 class="handle">
-                  <label id="qu2" for="handle32" class="label_sous_menu" style="text-align: left; padding: 5px; user-select: none; font-weight: bold;">Réglage de l'écran</label>
-                </h2>
-                <div class="content" style="border: 0px; padding: 0px;">
-                  <p id="informationsCervicales2" style="font-size: 17px;"></p>
                 </div>
               </section>
             </div>
@@ -336,6 +369,8 @@
         var nb_ecrans = document.querySelector('input[name="nb_ecrans"]:checked').value;
         var verres_pro = document.querySelector('input[name="verres_pro"]:checked').value;
         document.getElementById("save_params").style.display = "block";
+        document.getElementById("titre_accueil").style.display = "none";
+        document.getElementById("text_progression").style.display = "none";
 
         // INIT TEXTES INFOS
         document.getElementById('informationsCervicales1').textContent += infosCervicales.question1;
@@ -424,10 +459,7 @@
         var souris_proche = document.querySelector('input[name="souris_proche"]:checked') ? document.querySelector('input[name="souris_proche"]:checked').value : "";
         var clavier_loin = document.querySelector('input[name="clavier_loin"]:checked') ? document.querySelector('input[name="clavier_loin"]:checked').value : "";
 
-        var icone_res_cervicales = document.getElementById('icone_res_cervicales');
-        var icone_res_yeux = document.getElementById('icone_res_yeux');
-        var icone_res_epaules = document.getElementById('icone_res_epaules');
-
+        var progression = document.getElementById('progression_barre');
 
         // Partie CERVICALES
         var score_cervicales = [0,0,0];
@@ -442,13 +474,15 @@
         }
         score_cervicales[2] = compteurScoreCervicales;
 
-        if(compteurScoreCervicales == 2){
-          icone_res_cervicales.src = 'images/icone_cervicales_2.png';
-        } else if(compteurScoreCervicales == 1){
-          icone_res_cervicales.src = 'images/icone_cervicales_1.png';
-        } else {
-          icone_res_cervicales.src = 'images/icone_cervicales_0.png';
+        if(face_ecran != "" && haut_ecran != ""){
+          progression.style.left = '-80%';
+          document.getElementById('icone_cervicales').style.opacity = '0.6';
+        } else if(face_ecran != ""){
+          progression.style.left = '-90%';
+        } else if(haut_ecran != ""){
+          progression.style.left = '-90%';
         }
+
         if(document.getElementById('partie_cervicales').style.display != "none" && face_ecran != "" && haut_ecran != ""){
           document.getElementById('continuer').style.display = "flex";
         }
@@ -466,13 +500,15 @@
         }
         score_yeux[2] = compteurScoreYeux;
 
-        if(compteurScoreYeux == 2){
-          icone_res_yeux.src = 'images/icone_yeux_2.png';
-        } else if(compteurScoreYeux == 1){
-          icone_res_yeux.src = 'images/icone_yeux_1.png';
-        } else {
-          icone_res_yeux.src = 'images/icone_yeux_0.png';
+        if(per_ecran != "" && lum_ecran != ""){
+          progression.style.left = '-50%';
+          document.getElementById('icone_yeux').style.opacity = '0.4';
+        } else if(per_ecran != ""){
+          progression.style.left = '-65%';
+        } else if(lum_ecran != ""){
+          progression.style.left = '-65%';
         }
+
         if(document.getElementById('partie_yeux').style.display != "none" && per_ecran != "" && lum_ecran != ""){
           document.getElementById('continuer').style.display = "flex";
         }
@@ -494,89 +530,85 @@
         }
         score_epaules[3] = compteurScoreEpaules;
 
-        if(compteurScoreEpaules == 0){
-          icone_res_epaules.src = 'images/icone_epaules_0.png';
-        } else if(compteurScoreEpaules > 0 && compteurScoreEpaules < 3){
-          icone_res_epaules.src = 'images/icone_epaules_1.png';
-        } else if(compteurScoreEpaules > 2){
-          icone_res_epaules.src = 'images/icone_epaules_2.png';
+        if(avant_bras != "" && souris_proche != "" && clavier_loin != ""){
+          progression.style.left = '-10%';
+          document.getElementById('icone_epaule').style.opacity = '0.6';
+        } else if((avant_bras != "" && souris_proche != "") || (avant_bras != "" && clavier_loin != "") || (souris_proche != "" && clavier_loin != "")){
+          progression.style.left = '-25%';
+        } else if (avant_bras != "" || souris_proche != "" || clavier_loin != ""){
+          progression.style.left = '-35%';
         }
 
         if(document.getElementById('partie_epaules').style.display != "none" && avant_bras != "" && souris_proche != "" && clavier_loin != ""){
           document.getElementById('terminer').style.display = "flex";
         }
+
+        document.getElementById('indic_progression').innerHTML = 100 - progression.style.left.slice(1, -1) + ' %';
+
         return [score_cervicales, score_yeux, score_epaules];
       }
 
       function terminer(){
         var liste_scores = evaluer();
 
+        document.getElementById('progression_barre').style.left = '0%';
+        document.getElementById('titre_bilan').style.display = 'block';
+        document.getElementById('indic_progression').innerHTML = '100 %';
+        document.getElementById('text_progression').style.display = 'block';
+        document.getElementById('text_progression').innerHTML = 'Fin du questionnaire !';
+        document.getElementById('icone_cervicales').style.opacity = '0';
+        document.getElementById('icone_yeux').style.opacity = '0';
+        document.getElementById('icone_epaule').style.opacity = '0';
+
         var point_res_cervicales = document.getElementById('point_res_cervicales');
         var point_res_yeux = document.getElementById('point_res_yeux');
         var point_res_epaules = document.getElementById('point_res_epaules');
+        var point_res_epaules2 = document.getElementById('point_res_epaules2');
 
         // METTRE EN AVANT LES PROBLEMES
         // Cervicales
         if(liste_scores[0][0] == 1){
           document.getElementById('qu1').style.color = '#D0342C';
-          // document.getElementById('qu1').style.fontWeight = 'bold';
-          document.getElementById('handle3').checked = true;
         }
         if(liste_scores[0][1] == 1){
           document.getElementById('qu2').style.color = '#D0342C';
-          // document.getElementById('qu2').style.fontWeight = 'bold';
-          document.getElementById('handle3').checked = true;
         }
         // Yeux
         if(liste_scores[1][0] == 1){
           document.getElementById('qu3').style.color = '#D0342C';
-          // document.getElementById('qu3').style.fontWeight = 'bold';
-          document.getElementById('handle1').checked = true;
         }
         if(liste_scores[1][1] == 1){
           document.getElementById('qu4').style.color = '#D0342C';
-          // document.getElementById('qu4').style.fontWeight = 'bold';
-          document.getElementById('handle1').checked = true;
         }
         // Epaules
         if(liste_scores[2][0] == 1){
           document.getElementById('qu5').style.color = '#D0342C';
-          // document.getElementById('qu5').style.fontWeight = 'bold';
-          document.getElementById('handle2').checked = true;
         }
         if(liste_scores[2][1] == 1){
           document.getElementById('qu6').style.color = '#D0342C';
-          // document.getElementById('qu6').style.fontWeight = 'bold';
-          document.getElementById('handle2').checked = true;
         }
         if(liste_scores[2][2] == 1){
           document.getElementById('qu7').style.color = '#D0342C';
-          // document.getElementById('qu7').style.fontWeight = 'bold';
-          document.getElementById('handle2').checked = true;
         }
 
-        if(liste_scores[0][2] == 0){
-          point_res_cervicales.style.backgroundColor = 'green';
-        } else if(liste_scores[0][2] == 1){
-          point_res_cervicales.style.backgroundColor = 'yellow';
+        if(liste_scores[0][2] == 1){
+          point_res_cervicales.classList.add("signal_alerte");
         } else if(liste_scores[0][2] == 2){
-          point_res_cervicales.style.backgroundColor = 'red';
+          point_res_cervicales.classList.add("signal_danger");
         }
 
-        if(liste_scores[1][2] == 0){
-          point_res_yeux.style.backgroundColor = 'green';
-        } else if(liste_scores[1][2] == 1){
-          point_res_yeux.style.backgroundColor = 'yellow';
+        if(liste_scores[1][2] == 1){
+          point_res_yeux.classList.add("signal_alerte");
         } else if(liste_scores[1][2] == 2){
-          point_res_yeux.style.backgroundColor = 'red';
+          point_res_yeux.classList.add("signal_danger");
         }
 
-        if(liste_scores[2][3] == 0){
-          point_res_epaules.style.backgroundColor = 'green';
-        } else if(liste_scores[2][3] > 0 && liste_scores[2][3] < 3){
-          point_res_epaules.style.backgroundColor = 'yellow';
+        if(liste_scores[2][3] > 0 && liste_scores[2][3] < 3){
+          point_res_epaules.classList.add("signal_alerte");
+          point_res_epaules2.classList.add("signal_alerte");
         } else if(liste_scores[2][3] > 2){
-          point_res_epaules.style.backgroundColor = 'red';
+          point_res_epaules.classList.add("signal_danger");
+          point_res_epaules2.classList.add("signal_danger");
         }
         document.getElementById('partie_epaules').style.display = 'none';
         document.getElementById('retour').style.display = 'none';
@@ -759,6 +791,163 @@
         height: 0;
       }
 
+      /* Progress bar */
+      .container_progress {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+      }
+
+      .progress-bar__container {
+        width: 80%;
+        height: 2rem;
+        border-radius: 2rem;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.5s;
+        will-change: transform;
+        box-shadow: 0 0 5px #e76f51;
+      }
+
+      .progress-bar {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        content: "";
+        background-color: #e76f51;
+        top:0;
+        bottom: 0;
+        left: -100%;
+        border-radius: inherit;
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        color: white;
+        font-family: sans-serif;
+      }
+
+      /* BOUTONS RES MANNEQUIN */
+      .wrap {
+        height: 80%;
+        margin-top: 5%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .button_res_mannequin {
+        all: unset;
+        font-size: 20px;
+        font-family: "Open Sans", sans-serif;
+        text-transform: uppercase;
+        font-weight: 600;
+        background: linear-gradient(90deg, rgba(25,230,41,1) 0%, rgba(84,234,95,1) 100%);
+        border: none;
+        border-radius: 1000px;
+        box-shadow: 12px 12px 24px rgba(84,234,95,.64);
+        transition: all 0.2s ease-in-out 0s;
+        cursor: pointer;
+        outline: none;
+        position: relative;
+        padding: 10px;
+      }
+      .signal_alerte{
+        background: linear-gradient(90deg, rgba(244,240,4,1) 0%, rgba(245,243,77,1) 100%);
+        box-shadow: 12px 12px 24px rgba(245,243,77,.64);
+      }
+      .signal_danger{
+        background: linear-gradient(90deg, rgba(237,44,38,1) 0%, rgba(240,83,78,1) 100%);
+        box-shadow: 12px 12px 24px rgba(240,83,78,.64);
+      }
+      .button_res_mannequin:hover{
+        font-size: 20px;
+        box-shadow: none;
+        background: none;
+      }
+      .button_res_mannequin::before {
+        align-items: center;
+        text-align: center;
+        font-size: 2px;
+        line-height: 40px;
+        border-radius: 1000px;
+        min-width: calc(8px + 12px);
+        max-height: 40px;
+        background-color: rgba(150,150,150,0.7);
+        border: 3px solid rgba(84,234,95,1);
+        box-shadow: 0 0 40px rgba(84,234,95,0.7);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: all .3s ease-in-out 0s;
+      }
+      .point_yeux::before{
+        content: "➕ Vos yeux : détail";
+      }
+      .point_cervicales::before{
+        content: "➕ Vos cervicales : détail";
+      }
+      .point_epaule::before{
+        content: "➕ Vos épaules : détail";
+      }
+      .signal_alerte::before {
+        border: 3px solid rgba(245,243,77,1);
+        box-shadow: 0 0 40px rgba(245,243,77,0.7);
+      }
+      .signal_danger::before {
+        border: 3px solid rgba(240,83,78,1);
+        box-shadow: 0 0 40px rgba(240,83,78,0.7);
+      }
+      .button_res_mannequin:hover, .button_res_mannequin:focus {
+        color: #313133;
+        transform: translateY(-6px);
+      }
+      .button_res_mannequin:hover::before {
+        font-size: 18px;
+        min-width: calc(250px + 12px);
+        opacity: 1;
+      }
+      .point_cervicales:hover::before {
+          min-width: calc(300px + 12px);
+      }
+      .point_epaule:hover::before {
+          min-width: calc(280px + 12px);
+      }
+      .button_res_mannequin::after {
+        content: '';
+        width: 20px; height: 20px;
+        border-radius: 100%;
+        border: 4px solid rgba(84,234,95,1);
+        position: absolute;
+        z-index: -1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: ring 1.5s infinite;
+      }
+      .signal_alerte::after{
+        border: 4px solid rgba(245,243,77,1);
+      }
+      .signal_danger::after{
+        border: 4px solid rgba(240,83,78,1);
+      }
+      .button_res_mannequin:hover::after {
+        animation: none;
+        display: none;
+      }
+      @keyframes ring {
+        0% {
+          width: 20px;
+          height: 20px;
+          opacity: 1;
+        }
+        100% {
+          width: 70px;
+          height: 70px;
+          opacity: 0;
+        }
+      }
     </style>
   </body>
 </html>
