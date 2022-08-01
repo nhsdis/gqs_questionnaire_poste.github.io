@@ -29,7 +29,7 @@
       </div>
     </div>
 
-    <div class="" style="position: absolute; right: 3%; margin-top: 2%; width: 25%;">
+    <div class="" style="position: absolute; right: 12.5%; margin-top: 2.5%; width: 25%;">
       <div class="" style="position: absolute; bottom: -30%; left: 8%; display: flex; width: 80%; justify-content: space-around; align-items: center;">
         <img id="icone_cervicales" src="images/icone_cervicales.png" style="opacity: 0; z-index: 100; margin-bottom: 2.5%;" height="80" width="70" alt="">
         <img id="icone_yeux" src="images/icone_yeux.png" style="opacity: 0; z-index: 100; margin-top: 3%;" height="85" width="75" alt="">
@@ -45,13 +45,12 @@
     </div>
 
     <div class="" id="titre_accueil">
-      <h1 style="text-align: center">🖥️ Travail sur écran</h1>
-      <h2 style="text-align: center">Je m'auto-évalue</h2>
+      <h1 style="text-align: center; font-size: 45px;">🖥️ Travail sur écran</h1>
+      <h2 style="text-align: center; font-size: 40px;">Je m'auto-évalue</h2>
     </div>
 
     <div class="" style="display: none;" id="titre_bilan">
-      <h1 style="text-align: center">🖥️ Travail sur écran</h1>
-      <h2 style="text-align: center">Mon bilan :</h2>
+      <h1 style="text-align: center; font-size: 45px;">📝 Mon bilan :</h1>
     </div>
     <br>
 
@@ -84,265 +83,280 @@
         </div>
       </div>
 
-      <!-- <div class="" style="">
-        <div style="position: absolute; top: 140px; left: 229px;" class="wrap">
-          <button style="z-index: 100; width: 20px; height: 20px;" class="button_res_mannequin"></button>
-        </div>
-        <div style="position: absolute; top: 250px; left: 229px;" class="wrap">
-          <button style="z-index: 100; width: 20px; height: 20px;" class="button_res_mannequin signal_alerte"></button>
-        </div>
-        <div style="position: absolute; top: 330px; left: 80px;" class="wrap">
-          <button style="z-index: 100; width: 20px; height: 20px;" class="button_res_mannequin"></button>
-        </div>
-        <div style="position: absolute; top: 330px; left: 380px;" class="wrap">
-          <button style="z-index: 100; width: 20px; height: 20px;" class="button_res_mannequin signal_danger"></button>
-        </div>
-        <img src="images/mannequin_buste.png" style="" height="700" width="500" alt="">
-      </div> -->
-
-      <button type="button" name="button" id="valider_params" style="display: none;" onclick="commencer_questionnaire()">C'est parti !</button>
+      <button type="button" name="button" id="valider_params" style="display: none; width: auto;" onclick="commencer_questionnaire()">C'est parti !</button>
     </div>
 
 
-    <!-- ////////////////////////// -->
-    <!-- //// PARTIE CERVICALES ////-->
-    <!-- ////////////////////////// -->
-
-    <fieldset id="partie_cervicales" style="display: none; margin: 0 auto; margin-top: 7%;" class="">
-      <div class="container">
-        <h2 for="" style="margin-bottom: 3%;" id="adapterQuestion1">1 • Votre écran est-il positionné en face de vous ?</h2>
-        <div style="justify-content: space-between; display: flex;" class="">
-          <img id="adapterImage1" src="images/face_ecran_1.png" style="display:inline-block; vertical-align:middle; margin-right: 10%;" height="150" width="180" alt="">
-          <img id="adapterImage2" src="images/face_ecran_2.png" style="display:none; vertical-align:middle; margin-right: 5%;" height="120" width="170" alt="">
-          <div class="radio_container">
-            <input type="radio" name="face_ecran" id="face_ecran_oui" value="face_ecran_oui" onclick="evaluer()">
-            <label for="face_ecran_oui">Oui</label>
-            <input type="radio" name="face_ecran" id="face_ecran_non" value="face_ecran_non" onclick="evaluer()">
-            <label for="face_ecran_non">Non</label>
-          </div>
-        </div>
-
+    <div class="" style="width: 100%;">
+      <div style="position: absolute; bottom: 10%; left: 1%;" class="">
+        <button type="button" name="button" id="retour" style="display: none; margin-top: 2%;" onclick="question_precedente()">⬅ | Précédent</button>
       </div>
 
-      <div class="container">
-        <h2 for="" style="margin-bottom: 3%; margin-top: 7%;" id="adapterQuestion2">2 • Le haut de votre écran est-il à hauteur de vos yeux ?</h2>
-        <div style="justify-content: space-between; display: flex;" class="">
-          <img id="adapterImage3" src="images/haut_ecran.png" style="display:inline-block; vertical-align:middle; margin-right: 15%;" height="140" width="150" alt="">
-          <div class="radio_container">
-            <input type="radio" name="haut_ecran" id="haut_ecran_oui" value="haut_ecran_oui" onclick="evaluer()">
-            <label for="haut_ecran_oui">Oui</label>
-            <input type="radio" name="haut_ecran" id="haut_ecran_non" value="haut_ecran_non" onclick="evaluer()">
-            <label for="haut_ecran_non">Non</label>
-          </div>
-        </div>
-      </div>
-      <span id="affiche_score_cervicales"></span>
-    </fieldset>
+      <!-- ////////////////////////// -->
+      <!-- //// PARTIE CERVICALES ////-->
+      <!-- ////////////////////////// -->
 
-
-    <!-- //////////////////// -->
-    <!-- //// PARTIE YEUX ////-->
-    <!-- //////////////////// -->
-
-    <fieldset id="partie_yeux" style="display: none; margin: 0 auto; margin-top: 7%;" class="">
-      <div class="container">
-        <h2 for="" style="margin-bottom: 3%;">3 • Votre écran est-il perpendiculaire aux fenêtres ?</h2>
-        <div style="justify-content: space-between; display: flex;" class="">
-          <img src="images/per_fenetres.png" style="display:inline-block; vertical-align:middle; margin-right: 15%;" height="140" width="120" alt="">
-          <div class="radio_container">
-            <input type="radio" name="per_ecran" id="per_ecran_oui" value="per_ecran_oui" onclick="evaluer()">
-            <label for="per_ecran_oui">Oui</label>
-            <input type="radio" name="per_ecran" id="per_ecran_non" value="per_ecran_non" onclick="evaluer()">
-            <label for="per_ecran_non">Non</label>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <h2 for="" style="margin-top: 7%;">4 • Avez-vous déjà ajusté la luminosité de votre écran ?</h2>
-        <div style="justify-content: space-between; display: flex;" class="">
-          <img src="images/lum_ecran_icone.png" style="display:inline-block; vertical-align:middle; margin-right: 15%;" height="140" width="140" alt="">
-          <div class="radio_container">
-            <input type="radio" name="lum_ecran" id="lum_ecran_oui" value="lum_ecran_oui" onclick="evaluer()">
-            <label for="lum_ecran_oui">Oui</label>
-            <input type="radio" name="lum_ecran" id="lum_ecran_non" value="lum_ecran_non" onclick="evaluer()">
-            <label for="lum_ecran_non">Non</label>
-          </div>
-        </div>
-      </div>
-      <span id="affiche_score_yeux"></span>
-    </fieldset>
-
-
-    <!-- /////////////////////// -->
-    <!-- //// PARTIE EPAULES ////-->
-    <!-- /////////////////////// -->
-
-    <fieldset id="partie_epaules" style="display: none; margin: 0 auto; margin-top: 7%;" class="">
-      <div class="container">
-        <h2 for="" style="margin-bottom: 1%;">5 • Vos avant-bras reposent-ils sur les accoudoirs ou sur le bureau ?</h2>
-        <div style="justify-content: space-between; display: flex;" class="">
-          <img src="images/avant_bras.png" style="display:inline-block; vertical-align:middle; margin-right: 15%;" height="140" width="120" alt="">
-          <div class="radio_container">
-            <input type="radio" name="avant_bras" id="avant_bras_oui" value="avant_bras_oui" onclick="evaluer()">
-            <label for="avant_bras_oui">Oui</label>
-            <input type="radio" name="avant_bras" id="avant_bras_non" value="avant_bras_non" onclick="evaluer()">
-            <label for="avant_bras_non">Non</label>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <h2 for="" style="margin-bottom: 1%; margin-top: 3%;">6 • Votre souris est-elle positionnée à proximité immédiate, devant vous ?</h2>
-        <div style="justify-content: space-between; display: flex;" class="">
-          <img src="images/souris_eloignee.png" style="display:inline-block; vertical-align:middle; margin-right: 15%;" height="140" width="190" alt="">
-          <div class="radio_container">
-            <input type="radio" name="souris_proche" id="souris_proche_oui" value="souris_proche_oui" onclick="evaluer()">
-            <label for="souris_proche_oui">Oui</label>
-            <input type="radio" name="souris_proche" id="souris_proche_non" value="souris_proche_non" onclick="evaluer()">
-            <label for="souris_proche_non">Non</label>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <h2 for="" style="margin-top: 3%;">7 • Votre clavier est-il éloigné d'au moins 10 cm du rebord de votre bureau ?</h2>
-        <div style="justify-content: space-between; display: flex;" class="">
-          <img src="images/clavier_loin.png" style="display:inline-block; vertical-align:middle; margin-right: 15%;" height="140" width="380" alt="">
-          <div class="radio_container">
-            <input type="radio" name="clavier_loin" id="clavier_loin_oui" value="clavier_loin_oui" onclick="evaluer()">
-            <label for="clavier_loin_oui">Oui</label>
-            <input type="radio" name="clavier_loin" id="clavier_loin_non" value="clavier_loin_non" onclick="evaluer()">
-            <label for="clavier_loin_non">Non</label>
-          </div>
-        </div>
-      </div>
-      <span id="affiche_score_epaules"></span>
-    </fieldset>
-
-    <!-- ///////////////////////// -->
-    <!-- //// PARTIE RESULTATS ////-->
-    <!-- ///////////////////////// -->
-
-    <div id="partie_resultats" style="text-align: center; display: none; width: 100%;" class="">
-      <div class="" style="position: fixed; left: 50%; top: 50%; transform: translate(-130%, -50%);">
-        <div style="position: absolute; top: -180px; left: 222px;" class="wrap">
-          <button id="point_res_yeux" style="z-index: 100; width: 20px; height: 20px;" class="button_res_mannequin point_yeux" onclick="gererParties('handle1')"></button>
-        </div>
-        <div style="position: absolute; top: -70px; left: 222px;" class="wrap">
-          <button id="point_res_cervicales" style="z-index: 100; width: 20px; height: 20px;" class="button_res_mannequin point_cervicales" onclick="gererParties('handle3')"></button>
-        </div>
-        <div style="position: absolute; top: 10px; left: 73px;" class="wrap">
-          <button id="point_res_epaules" style="z-index: 100; width: 20px; height: 20px;" class="button_res_mannequin point_epaule" onclick="gererParties('handle2')"></button>
-        </div>
-        <div style="position: absolute; top: 10px; left: 373px;" class="wrap">
-          <button id="point_res_epaules2" style="z-index: 100; width: 20px; height: 20px;" class="button_res_mannequin point_epaule" onclick="gererParties('handle2')"></button>
-        </div>
-        <img src="images/mannequin_buste.png" style="" height="700" width="500" alt="">
-      </div>
-      <div style="display:inline-block; margin-left: 40%; margin-top: 5%; width: 50%;" class="">
-        <div style="text-align: left; display: flex;" class="">
-          <section class="accordion">
-            <input type="checkbox" name="collapse" id="handle1" onclick="gererParties(this.id)">
-            <h2 class="handle">
-              <label for="handle1">Vos yeux</label>
-            </h2>
-            <div class="content">
-              <section class="accordion" style="width: 95%; margin: 0 auto;">
-                <input type="checkbox" name="colla" id="handle11" onclick="gererSousParties(this.id)">
-                <h2 class="handle">
-                  <label id="qu3" for="handle11" class="label_sous_menu" style="text-align: left; padding: 5px; user-select: none; font-weight: bold;">Les fenêtres</label>
-                </h2>
-                <div class="content" style="border: 0px; padding: 0px;">
-                  <p id="informationsYeux1" style="font-size: 17px;"></p>
-                </div>
-              </section>
-              <section class="accordion" style="width: 95%; margin: 0 auto;">
-                <input type="checkbox" name="colla" id="handle12" onclick="gererSousParties(this.id)">
-                <h2 class="handle">
-                  <label id="qu4" for="handle12" class="label_sous_menu" style="text-align: left; padding: 5px; user-select: none; font-weight: bold;">La lumière bleue</label>
-                </h2>
-                <div class="content" style="border: 0px; padding: 0px;">
-                  <p id="informationsYeux2" style="font-size: 17px;"></p>
-                </div>
-              </section>
+      <fieldset id="partie_cervicales" style="display: none; margin: 0 auto; margin-top: 7%;" class="">
+        <div class="container">
+          <h2 for="" style="margin-bottom: 3%; font-size: 30px;" id="adapterQuestion1">1 • Votre écran est-il positionné en face de vous ?</h2>
+          <div style="justify-content: space-between; display: flex;" class="">
+            <div id="adapterImage1" class="" style="margin-right: 17%;">
+              <img src="images/face_ecran_1.png" style="display: inline-block; vertical-align:middle; " height="230" width="260" alt="">
+              <a title="Mobilier.fr" style="text-decoration: none;"><p style="font-style: italic; text-align: center;">❔ Source</p></a>
             </div>
-          </section>
-        </div>
-        <div style="text-align: left; display: flex;" class="">
-          <section class="accordion">
-            <input type="checkbox" name="collapse" id="handle3" onclick="gererParties(this.id)">
-            <h2 class="handle">
-              <label for="handle3">Vos cervicales</label>
-            </h2>
-            <div class="content">
-              <section class="accordion" style="width: 95%; margin: 0 auto;">
-                <input type="checkbox" name="colla" id="handle31" onclick="gererSousParties(this.id)">
-                <h2 class="handle">
-                  <label id="qu1" for="handle31" class="label_sous_menu" style="text-align: left; padding: 5px; user-select: none; font-weight: bold;">L'écran principal</label>
-                </h2>
-                <div class="content" style="border: 0px; padding: 0px;">
-                  <p id="informationsCervicales1" style="font-size: 17px;"></p>
-                </div>
-              </section>
-              <section class="accordion" style="width: 95%; margin: 0 auto;">
-                <input type="checkbox" name="colla" id="handle32" onclick="gererSousParties(this.id)">
-                <h2 class="handle">
-                  <label id="qu2" for="handle32" class="label_sous_menu" style="text-align: left; padding: 5px; user-select: none; font-weight: bold;">Réglage de l'écran</label>
-                </h2>
-                <div class="content" style="border: 0px; padding: 0px;">
-                  <p id="informationsCervicales2" style="font-size: 17px;"></p>
-                </div>
-              </section>
+            <div id="adapterImage2" class="" style="margin-right: 20%; display: none;">
+              <img src="images/face_ecran_2.png" style="vertical-align:middle;" height="190" width="240" alt="">
+              <a title="ergo-motri-santé.fr" style="text-decoration: none;"><p style="font-style: italic; text-align: center;">❔ Source</p></a>
             </div>
-          </section>
-        </div>
-        <div style="text-align: left; display: flex;" class="">
-          <section class="accordion">
-            <input type="checkbox" name="collapse" id="handle2" onclick="gererParties(this.id)">
-            <h2 class="handle">
-              <label for="handle2">Vos épaules</label>
-            </h2>
-            <div class="content">
-              <section class="accordion" style="width: 95%; margin: 0 auto;">
-                <input type="checkbox" name="colla" id="handle21" onclick="gererSousParties(this.id)">
-                <h2 class="handle">
-                  <label id="qu5" for="handle21" class="label_sous_menu" style="text-align: left; padding: 5px; user-select: none; font-weight: bold;">Vos avant bras</label>
-                </h2>
-                <div class="content" style="border: 0px; padding: 0px;">
-                  <p id="informationsEpaules1" style="font-size: 17px;"></p>
-                </div>
-              </section>
-              <section class="accordion" style="width: 95%; margin: 0 auto;">
-                <input type="checkbox" name="colla" id="handle22" onclick="gererSousParties(this.id)">
-                <h2 class="handle">
-                  <label id="qu6" for="handle22" class="label_sous_menu" style="text-align: left; padding: 5px; user-select: none; font-weight: bold;">Votre souris</label>
-                </h2>
-                <div class="content" style="border: 0px; padding: 0px;">
-                  <p id="informationsEpaules2" style="font-size: 17px;"></p>
-                </div>
-              </section>
-              <section class="accordion" style="width: 95%; margin: 0 auto;">
-                <input type="checkbox" name="colla" id="handle23" onclick="gererSousParties(this.id)">
-                <h2 class="handle">
-                  <label id="qu7" for="handle23" class="label_sous_menu" style="text-align: left; padding: 5px; user-select: none; font-weight: bold;">Votre clavier</label>
-                </h2>
-                <div class="content" style="border: 0px; padding: 0px;">
-                  <p id="informationsEpaules3" style="font-size: 17px;"></p>
-                </div>
-              </section>
+            <div class="radio_container" style="align-self: center;">
+              <input type="radio" name="face_ecran" id="face_ecran_oui" value="face_ecran_oui" onclick="evaluer()">
+              <label for="face_ecran_oui">Oui</label>
+              <input type="radio" name="face_ecran" id="face_ecran_non" value="face_ecran_non" onclick="evaluer()">
+              <label for="face_ecran_non">Non</label>
             </div>
-          </section>
+          </div>
+
         </div>
+
+        <div class="container">
+          <h2 for="" style="margin-bottom: 3%; margin-top: 1%; font-size: 30px;" id="adapterQuestion2">2 • Le haut de votre écran est-il à hauteur de vos yeux ?</h2>
+          <div style="justify-content: space-between; display: flex;" class="">
+            <div class="" style="margin-right: 20%;">
+              <img id="adapterImage3" src="images/haut_ecran.png" style="display:inline-block; vertical-align:middle;" height="210" width="220" alt="">
+              <a title="Azergo" style="text-decoration: none;"><p style="font-style: italic; text-align: center;">❔ Source</p></a>
+            </div>
+            <div class="radio_container" style="align-self: center;">
+              <input type="radio" name="haut_ecran" id="haut_ecran_oui" value="haut_ecran_oui" onclick="evaluer()">
+              <label for="haut_ecran_oui">Oui</label>
+              <input type="radio" name="haut_ecran" id="haut_ecran_non" value="haut_ecran_non" onclick="evaluer()">
+              <label for="haut_ecran_non">Non</label>
+            </div>
+          </div>
+        </div>
+        <span id="affiche_score_cervicales"></span>
+      </fieldset>
+
+
+      <!-- //////////////////// -->
+      <!-- //// PARTIE YEUX ////-->
+      <!-- //////////////////// -->
+
+      <fieldset id="partie_yeux" style="display: none; margin: 0 auto; margin-top: 7%;" class="">
+        <div class="container">
+          <h2 for="" style="margin-bottom: 3%; font-size: 30px;">3 • Votre écran est-il perpendiculaire aux fenêtres ?</h2>
+          <div style="justify-content: space-between; display: flex;" class="">
+            <div class="" style="margin-right: 20%;">
+              <img src="images/per_fenetres.png" style="display:inline-block; vertical-align:middle;" height="220" width="200" alt="">
+              <a title="Suvapro" style="text-decoration: none;"><p style="font-style: italic; text-align: center;">❔ Source</p></a>
+            </div>
+            <div class="radio_container" style="align-self: center;">
+              <input type="radio" name="per_ecran" id="per_ecran_oui" value="per_ecran_oui" onclick="evaluer()">
+              <label for="per_ecran_oui">Oui</label>
+              <input type="radio" name="per_ecran" id="per_ecran_non" value="per_ecran_non" onclick="evaluer()">
+              <label for="per_ecran_non">Non</label>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <h2 for="" style="margin-top: 1%; font-size: 30px;">4 • Avez-vous déjà ajusté la luminosité de votre écran ?</h2>
+          <div style="justify-content: space-between; display: flex;" class="">
+            <div class="" style="margin-right: 15%;">
+              <img src="images/lum_ecran_icone.png" style="display:inline-block; vertical-align:middle;" height="200" width="200" alt="">
+              <a title="Flaticon.com" style="text-decoration: none;"><p style="font-style: italic; text-align: center;">❔ Source</p></a>
+            </div>
+            <div class="radio_container" style="align-self: center;">
+              <input type="radio" name="lum_ecran" id="lum_ecran_oui" value="lum_ecran_oui" onclick="evaluer()">
+              <label for="lum_ecran_oui">Oui</label>
+              <input type="radio" name="lum_ecran" id="lum_ecran_non" value="lum_ecran_non" onclick="evaluer()">
+              <label for="lum_ecran_non">Non</label>
+            </div>
+          </div>
+        </div>
+        <span id="affiche_score_yeux"></span>
+      </fieldset>
+
+
+      <!-- /////////////////////// -->
+      <!-- //// PARTIE EPAULES ////-->
+      <!-- /////////////////////// -->
+
+      <fieldset id="partie_epaules" style="display: none; margin: 0 auto; margin-top: 7%;" class="">
+        <div class="container">
+          <h2 for="" style="margin-bottom: 1%; font-size: 30px;">5 • Vos avant-bras reposent-ils sur les accoudoirs ou sur le bureau ?</h2>
+          <div style="justify-content: space-between; display: flex;" class="">
+            <div class="" style="margin-right: 15%; display: flex;">
+              <a title="Suvapro" style="text-decoration: none; align-self: flex-end;"><p style="font-style: italic; text-align: center;">❔ Source</p></a>
+              <img src="images/avant_bras.png" style="display:inline-block; vertical-align:middle;" height="160" width="140" alt="">
+            </div>
+            <div class="radio_container" style="align-self: center;">
+              <input type="radio" name="avant_bras" id="avant_bras_oui" value="avant_bras_oui" onclick="evaluer()">
+              <label for="avant_bras_oui">Oui</label>
+              <input type="radio" name="avant_bras" id="avant_bras_non" value="avant_bras_non" onclick="evaluer()">
+              <label for="avant_bras_non">Non</label>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <h2 for="" style="margin-bottom: 1%; font-size: 30px;">6 • Votre souris est-elle positionnée à proximité immédiate, devant vous ?</h2>
+          <div style="justify-content: space-between; display: flex;" class="">
+            <div class="" style="margin-right: 15%; display: flex;">
+              <a title="sistlib.org" style="text-decoration: none; align-self: flex-end;"><p style="font-style: italic; text-align: center;">❔ Source</p></a>
+              <img src="images/souris_eloignee.png" style="display:inline-block; vertical-align:middle;" height="150" width="200" alt="">
+            </div>
+            <div class="radio_container" style="align-self: center;">
+              <input type="radio" name="souris_proche" id="souris_proche_oui" value="souris_proche_oui" onclick="evaluer()">
+              <label for="souris_proche_oui">Oui</label>
+              <input type="radio" name="souris_proche" id="souris_proche_non" value="souris_proche_non" onclick="evaluer()">
+              <label for="souris_proche_non">Non</label>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <h2 for="" style="font-size: 30px;">7 • Votre clavier est-il éloigné d'au moins 10 cm du rebord de votre bureau ?</h2>
+          <div style="justify-content: space-between; display: flex;" class="">
+            <div class="" style="margin-right: 15%; display: flex; ">
+              <a title="Sista" title="Lien vers le chapitre 2" style="text-decoration: none; align-self: flex-end;"><p style="font-style: italic; text-align: center;">❔ Source</p></a>
+              <img src="images/clavier_loin.png" style="display:inline-block; vertical-align:middle;" height="150" width="390" alt="">
+            </div>
+            <div class="radio_container" style="align-self: center;">
+              <input type="radio" name="clavier_loin" id="clavier_loin_oui" value="clavier_loin_oui" onclick="evaluer()">
+              <label for="clavier_loin_oui">Oui</label>
+              <input type="radio" name="clavier_loin" id="clavier_loin_non" value="clavier_loin_non" onclick="evaluer()">
+              <label for="clavier_loin_non">Non</label>
+            </div>
+          </div>
+        </div>
+        <span id="affiche_score_epaules"></span>
+      </fieldset>
+
+      <!-- ///////////////////////// -->
+      <!-- //// PARTIE RESULTATS ////-->
+      <!-- ///////////////////////// -->
+
+      <div id="partie_resultats" style="text-align: center; display: none; width: 100%;" class="">
+        <div class="" style="position: fixed; left: 50%; top: 55%; transform: translate(-130%, -50%);">
+          <div style="position: absolute; top: -210px; left: 271px;" class="wrap">
+            <button id="point_res_yeux" style="z-index: 100; width: 20px; height: 20px;" class="button_res_mannequin point_yeux" onclick="gererParties('handle1')"></button>
+          </div>
+          <div style="position: absolute; top: -90px; left: 271px;" class="wrap">
+            <button id="point_res_cervicales" style="z-index: 100; width: 20px; height: 20px;" class="button_res_mannequin point_cervicales" onclick="gererParties('handle3')"></button>
+          </div>
+          <div style="position: absolute; top: 20px; left: 103px;" class="wrap">
+            <button id="point_res_epaules" style="z-index: 100; width: 20px; height: 20px;" class="button_res_mannequin point_epaule" onclick="gererParties('handle2')"></button>
+          </div>
+          <div style="position: absolute; top: 20px; left: 442px;" class="wrap">
+            <button id="point_res_epaules2" style="z-index: 100; width: 20px; height: 20px;" class="button_res_mannequin point_epaule" onclick="gererParties('handle2')"></button>
+          </div>
+          <img src="images/mannequin_buste.png" style="" height="800" width="600" alt="">
+        </div>
+        <div class="" style="position: absolute; top: 20%; left: 53%;">
+          <span style="font-size: 20px; font-weight: bold; font-family: "Open Sans", sans-serif;">❔ Si besoin, veuillez contacter la mission SSQVS</span><br>
+          <span style="font-size: 18px; font-weight: bold; font-family: "Open Sans", sans-serif;">@ : ssqvs@sdis38.fr</span>
+        </div>
+        <div style="display:inline-block; margin-left: 40%; margin-top: 7%; width: 50%;" class="">
+          <div style="text-align: left; display: flex;" class="">
+            <section class="accordion">
+              <input type="checkbox" name="collapse" id="handle1" onclick="gererParties(this.id)">
+              <h2 class="handle">
+                <label for="handle1">Vos yeux</label>
+              </h2>
+              <div class="content">
+                <section class="accordion" style="width: 95%; margin: 0 auto;">
+                  <input type="checkbox" name="colla" id="handle11" onclick="gererSousParties(this.id)">
+                  <h2 class="handle">
+                    <label id="qu3" for="handle11" class="label_sous_menu" style="text-align: left; padding-bottom: 10px; user-select: none; font-weight: bold;">Les fenêtres</label>
+                  </h2>
+                  <div class="content" style="border: 0px; padding: 0px;">
+                    <p id="informationsYeux1" style="font-size: 17px; font-family: "Open Sans", sans-serif;"></p>
+                  </div>
+                </section>
+                <section class="accordion" style="width: 95%; margin: 0 auto;">
+                  <input type="checkbox" name="colla" id="handle12" onclick="gererSousParties(this.id)">
+                  <h2 class="handle">
+                    <label id="qu4" for="handle12" class="label_sous_menu" style="text-align: left; padding-bottom: 10px; user-select: none; font-weight: bold;">La lumière bleue</label>
+                  </h2>
+                  <div class="content" style="border: 0px; padding: 0px;">
+                    <p id="informationsYeux2" style="font-size: 17px; font-family: "Open Sans", sans-serif;"></p>
+                  </div>
+                </section>
+              </div>
+            </section>
+          </div>
+          <div style="text-align: left; display: flex;" class="">
+            <section class="accordion">
+              <input type="checkbox" name="collapse" id="handle3" onclick="gererParties(this.id)">
+              <h2 class="handle">
+                <label for="handle3">Vos cervicales</label>
+              </h2>
+              <div class="content">
+                <section class="accordion" style="width: 95%; margin: 0 auto;">
+                  <input type="checkbox" name="colla" id="handle31" onclick="gererSousParties(this.id)">
+                  <h2 class="handle">
+                    <label id="qu1" for="handle31" class="label_sous_menu" style="text-align: left; padding-bottom: 10px; user-select: none; font-weight: bold;">L'écran principal</label>
+                  </h2>
+                  <div class="content" style="border: 0px; padding: 0px;">
+                    <p id="informationsCervicales1" style="font-size: 17px; font-family: "Open Sans", sans-serif;"></p>
+                  </div>
+                </section>
+                <section class="accordion" style="width: 95%; margin: 0 auto;">
+                  <input type="checkbox" name="colla" id="handle32" onclick="gererSousParties(this.id)">
+                  <h2 class="handle">
+                    <label id="qu2" for="handle32" class="label_sous_menu" style="text-align: left; padding-bottom: 10px; user-select: none; font-weight: bold;">Réglage de l'écran</label>
+                  </h2>
+                  <div class="content" style="border: 0px; padding: 0px;">
+                    <p id="informationsCervicales2" style="font-size: 17px; font-family: "Open Sans", sans-serif;"></p>
+                  </div>
+                </section>
+              </div>
+            </section>
+          </div>
+          <div style="text-align: left; display: flex;" class="">
+            <section class="accordion">
+              <input type="checkbox" name="collapse" id="handle2" onclick="gererParties(this.id)">
+              <h2 class="handle">
+                <label for="handle2">Vos épaules</label>
+              </h2>
+              <div class="content">
+                <section class="accordion" style="width: 95%;">
+                  <input type="checkbox" name="colla" id="handle21" onclick="gererSousParties(this.id)">
+                  <h2 class="handle">
+                    <label id="qu5" for="handle21" class="label_sous_menu" style="text-align: left; padding-bottom: 10px; user-select: none; font-weight: bold;">Vos avant bras</label>
+                  </h2>
+                  <div class="content" style="border: 0px; padding: 0px;">
+                    <p id="informationsEpaules1" style="font-size: 17px; font-family: "Open Sans", sans-serif;"></p>
+                  </div>
+                </section>
+                <section class="accordion" style="width: 95%;">
+                  <input type="checkbox" name="colla" id="handle22" onclick="gererSousParties(this.id)">
+                  <h2 class="handle">
+                    <label id="qu6" for="handle22" class="label_sous_menu" style="text-align: left; padding-bottom: 10px; user-select: none; font-weight: bold;">Votre souris</label>
+                  </h2>
+                  <div class="content" style="border: 0px; padding: 0px;">
+                    <p id="informationsEpaules2" style="font-size: 17px; font-family: "Open Sans", sans-serif;"></p>
+                  </div>
+                </section>
+                <section class="accordion" style="width: 95%;">
+                  <input type="checkbox" name="colla" id="handle23" onclick="gererSousParties(this.id)">
+                  <h2 class="handle">
+                    <label id="qu7" for="handle23" class="label_sous_menu" style="text-align: left; padding-bottom: 10px; user-select: none; font-weight: bold;">Votre clavier</label>
+                  </h2>
+                  <div class="content" style="border: 0px; padding: 0px;">
+                    <p id="informationsEpaules3" style="font-size: 17px; font-family: "Open Sans", sans-serif;"></p>
+                  </div>
+                </section>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      <div style="position: absolute; bottom: 10%; right: 1%;" class="">
+        <button type="button" name="button" id="continuer" style="display: none;" onclick="question_suivante()">Continuer | ➡</button>
+        <button type="button" name="button" id="terminer" style="display: none;" onclick="terminer()">✓ | Terminer</button>
       </div>
     </div>
 
-    <!-- /////////////////////// -->
-    <!-- //// PARTIE BOUTONS ////-->
-    <!-- /////////////////////// -->
 
-    <div style="display: flex; margin: 0 auto; width: 70%;" class="">
-      <button type="button" name="button" id="retour" style="display: none;" onclick="question_precedente()">⬅ | Précédent</button>
-      <button type="button" name="button" id="continuer" style="display: none;" onclick="question_suivante()">Continuer | ➡</button>
-      <button type="button" name="button" id="terminer" style="display: none;" onclick="terminer()">✓ | Terminer</button>
-    </div>
 
 
     <script type="text/javascript">
@@ -569,26 +583,33 @@
         // Cervicales
         if(liste_scores[0][0] == 1){
           document.getElementById('qu1').style.color = '#D0342C';
+          document.getElementById('handle31').checked = true;
         }
         if(liste_scores[0][1] == 1){
           document.getElementById('qu2').style.color = '#D0342C';
+          document.getElementById('handle32').checked = true;
         }
         // Yeux
         if(liste_scores[1][0] == 1){
           document.getElementById('qu3').style.color = '#D0342C';
+          document.getElementById('handle11').checked = true;
         }
         if(liste_scores[1][1] == 1){
           document.getElementById('qu4').style.color = '#D0342C';
+          document.getElementById('handle12').checked = true;
         }
         // Epaules
         if(liste_scores[2][0] == 1){
           document.getElementById('qu5').style.color = '#D0342C';
+          document.getElementById('handle21').checked = true;
         }
         if(liste_scores[2][1] == 1){
           document.getElementById('qu6').style.color = '#D0342C';
+          document.getElementById('handle22').checked = true;
         }
         if(liste_scores[2][2] == 1){
           document.getElementById('qu7').style.color = '#D0342C';
+          document.getElementById('handle23').checked = true;
         }
 
         if(liste_scores[0][2] == 1){
@@ -622,7 +643,11 @@
         background-color: #DDDDDD;
       }
       fieldset{
-        width: 60%;
+        width: 70%;
+        border: 1px solid #e76f51;
+        border-top: 20px solid #e76f51;
+        border-bottom: 10px solid #e76f51;
+        border-radius: 20px;
       }
       .container{
         width: 100%;
@@ -638,7 +663,7 @@
         justify-content: space-around;
         align-items: center;
         background-color: #cecece;
-        width: 280px;
+        width: 450px;
         height: 50px;
         border-radius: 9999px;
         box-shadow: inset 0.5px 0.5px 2px 0 rgba(0, 0, 0, 0.15);
@@ -671,7 +696,7 @@
       }
       #titre_params{
         color: white;
-        background-color: #000000;
+        background-color: #333333;
         width: 100%;
         height: 100%;
         margin-right: 1%;
@@ -682,6 +707,7 @@
       button{
         box-sizing: border-box;
         appearance: none;
+        width: 230px;
         background-color: transparent;
         border: 2px solid #2ecc71;
         border-radius: 0.6em;
@@ -717,7 +743,7 @@
       #save_params{
         position: absolute;
         top: 1.9%;
-        left: 7%;
+        left: 14.5%;
         width: 25%;
         align-items: center;
         padding: 15px;
@@ -777,7 +803,7 @@
         content: "⇩";
       }
       .accordion .handle .label_sous_menu:before {
-        content: "👁";
+        content: url(images/clique.png);
       }
       .accordion > input[type="checkbox"]:checked ~ .handle .label_sous_menu:before {
         content: "⇩";
@@ -824,7 +850,7 @@
         justify-content: center;
         align-items:center;
         color: white;
-        font-family: sans-serif;
+        font-family: "Open Sans", sans-serif;
       }
 
       /* BOUTONS RES MANNEQUIN */
