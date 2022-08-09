@@ -1,7 +1,7 @@
 var infosCervicales = {
-  question1  : "Un écran principal désaxé est à l’origine de torsions cervicales répétées ou prolongées. Préférez un placement face à vous afin de préserver vos vertèbres cervicales.",
-  question2_sans_verres_pro : "Un écran principal placé trop bas ou trop haut peut générer d’importantes contraintes de flexions ou d’extensions sur vos cervicales. Privilégier un positionnement à hauteur de vos yeux afin de préserver vos vertèbres cervicales.",
-  question2_verres_pro  : "Un écran placé trop bas, trop haut ou insuffisamment incliné peut générer d’importantes contraintes sur vos cervicales. Un écran placé en position basse et incliné vers l’avant est à privilégier afin de préserver vos vertèbres cervicales."
+  question1  : "Un écran principal désaxé peut occasionner des torsions cervicales répétées et prolongées. Préférez un placement face à vous afin de préserver votre nuque.",
+  question2_sans_verres_pro : "Un écran principal placé trop bas ou trop haut peut générer d’importantes contraintes de flexions ou d’extensions sur vos cervicales. Privilégier un positionnement à hauteur de vos yeux afin de préserver votre nuque.",
+  question2_verres_pro  : "Un écran placé trop bas, trop haut ou insuffisamment incliné peut générer d’importantes contraintes de flexions ou d’extensions sur vos vertèbres cervicales. Un écran placé en position basse et incliné vers l’avant est à privilégier afin de préserver votre nuque."
 };
 
 var infosYeux = {
