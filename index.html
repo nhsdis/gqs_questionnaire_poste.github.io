@@ -51,6 +51,7 @@
 
     <div class="" style="display: none;" id="titre_bilan">
       <h1 style="text-align: center; font-size: 45px;">📝 Mon bilan :</h1>
+      <h4 style="text-align: center; opacity: 0.6;">🛈 Cliquez sur les différentes parties pour obtenir le détail.</h4>
     </div>
     <br>
 
@@ -248,16 +249,16 @@
             <button id="point_res_epaules2" style="z-index: 100; width: 20px; height: 20px;" class="button_res_mannequin point_epaule" onclick="gererParties('handle2')"></button>
           </div>
           <img src="images/mannequin_buste.png" style="" height="800" width="600" alt="">
-          <div class="" style="position: absolute; width: 400px; top: 140px; left: -110px; text-align: left;">
-            <span style="display: flex; align-items: center; margin-bottom: 5%;"><div style="width: 23px; height: 23px; border-radius: 100px; background-color: #54EA5F; margin-right: 4%;"></div> Réglages adaptés</span>
-            <span style="display: flex; align-items: center; margin-bottom: 5%;"><div style="width: 23px; height: 23px; border-radius: 100px; background-color: #F5F34D; margin-right: 4%;"></div> Un réglage à améliorer</span>
-            <span style="display: flex; align-items: center;"><div style="width: 23px; height: 23px; border-radius: 100px; background-color: #E76F51; margin-right: 4%;"></div> Plusieurs réglages à améliorer</span>
+          <div class="" style="position: absolute; width: 270px; top: 140px; left: -150px; text-align: left; padding: 10px; border-radius: 10px; box-shadow: 5px 5px 15px 5px rgba(231,111,81,0.41);">
+            <span style="display: flex; align-items: center; margin-bottom: 5%; opacity: 0.9;"><div style="width: 23px; height: 23px; border-radius: 100px; background-color: #54EA5F; margin-right: 4%;"></div> Réglages adaptés</span>
+            <span style="display: flex; align-items: center; margin-bottom: 5%; opacity: 0.9;"><div style="width: 23px; height: 23px; border-radius: 100px; background-color: #F5F34D; margin-right: 4%;"></div> Un réglage à améliorer</span>
+            <span style="display: flex; align-items: center; opacity: 0.9;"><div style="width: 23px; height: 23px; border-radius: 100px; background-color: #E76F51; margin-right: 4%;"></div> Plusieurs réglages à améliorer</span>
           </div>
         </div>
-        <div style="display:inline-block; margin-left: 40%; margin-top: 11%; width: 50%;" class="">
+        <div style="display:inline-block; margin-left: 40%; margin-top: 7%; width: 50%;" class="">
           <div style="text-align: left; display: flex;" class="">
             <section class="accordion">
-              <input type="checkbox" name="collapse" id="handle1" disabled>
+              <input type="checkbox" name="collapse" id="handle1" onclick="gererParties(this.id)">
               <h2 class="handle">
                 <label for="handle1" style="display: flex; align-items: center;"><div id="point_infos_yeux" style="width: 23px; height: 23px; border-radius: 100px; background-color: #54EA5F; margin-right: 2%;"></div> Mes yeux</label>
               </h2>
@@ -285,7 +286,7 @@
           </div>
           <div style="text-align: left; display: flex;" class="">
             <section class="accordion">
-              <input type="checkbox" name="collapse" id="handle3" disabled>
+              <input type="checkbox" name="collapse" id="handle3" onclick="gererParties(this.id)">
               <h2 class="handle">
                 <label for="handle3" style="display: flex; align-items: center;"><div id="point_infos_cervicales" style="width: 23px; height: 23px; border-radius: 100px; background-color: #54EA5F; margin-right: 2%;"></div> Mes cervicales</label>
               </h2>
@@ -313,7 +314,7 @@
           </div>
           <div style="text-align: left; display: flex;" class="">
             <section class="accordion">
-              <input type="checkbox" name="collapse" id="handle2" disabled>
+              <input type="checkbox" name="collapse" id="handle2" onclick="gererParties(this.id)">
               <h2 class="handle">
                 <label for="handle2" style="display: flex; align-items: center;"><div id="point_infos_epaules" style="width: 23px; height: 23px; border-radius: 100px; background-color: #54EA5F; margin-right: 2%;"></div> Mes épaules</label>
               </h2>
@@ -368,7 +369,37 @@
     <script type="text/javascript">
 
       function gererParties(nom_partie){
+        var liste_scores = evaluer();
+        document.getElementById('progression_barre').style.left = '0%';
+        document.getElementById('indic_progression').innerHTML = '100 %';
+
         document.querySelectorAll('input[name=collapse]').forEach(el => el.checked = false);
+        document.querySelectorAll('input[name=colla]').forEach(el => el.checked = false);
+
+        if(liste_scores[0][0] == 1){
+          document.getElementById('handle31').checked = true;
+        }
+        if(liste_scores[0][1] == 1){
+          document.getElementById('handle32').checked = true;
+        }
+        // Yeux
+        if(liste_scores[1][0] == 1){
+          document.getElementById('handle11').checked = true;
+        }
+        if(liste_scores[1][1] == 1){
+          document.getElementById('handle12').checked = true;
+        }
+        // Epaules
+        if(liste_scores[2][0] == 1){
+          document.getElementById('handle21').checked = true;
+        }
+        if(liste_scores[2][1] == 1){
+          document.getElementById('handle22').checked = true;
+        }
+        if(liste_scores[2][2] == 1){
+          document.getElementById('handle23').checked = true;
+        }
+
         document.getElementById(nom_partie).checked = true;
       }
 
@@ -496,7 +527,9 @@
 
         if(face_ecran != "" && haut_ecran != ""){
           progression.style.left = '-80%';
-          document.getElementById('icone_cervicales').style.opacity = '0.6';
+          if(document.getElementById('partie_resultats').style.display == 'none'){
+            document.getElementById('icone_cervicales').style.opacity = '0.6';
+          }
         } else if(face_ecran != ""){
           progression.style.left = '-90%';
         } else if(haut_ecran != ""){
@@ -522,7 +555,9 @@
 
         if(per_ecran != "" && lum_ecran != ""){
           progression.style.left = '-50%';
-          document.getElementById('icone_yeux').style.opacity = '0.4';
+          if(document.getElementById('partie_resultats').style.display == 'none'){
+            document.getElementById('icone_yeux').style.opacity = '0.4';
+          }
         } else if(per_ecran != ""){
           progression.style.left = '-65%';
         } else if(lum_ecran != ""){
@@ -552,7 +587,9 @@
 
         if(avant_bras != "" && souris_proche != "" && clavier_loin != ""){
           progression.style.left = '-10%';
-          document.getElementById('icone_epaule').style.opacity = '0.6';
+          if(document.getElementById('partie_resultats').style.display == 'none'){
+            document.getElementById('icone_epaule').style.opacity = '0.6';
+          }
         } else if((avant_bras != "" && souris_proche != "") || (avant_bras != "" && clavier_loin != "") || (souris_proche != "" && clavier_loin != "")){
           progression.style.left = '-25%';
         } else if (avant_bras != "" || souris_proche != "" || clavier_loin != ""){
@@ -579,6 +616,8 @@
         document.getElementById('icone_cervicales').style.opacity = '0';
         document.getElementById('icone_yeux').style.opacity = '0';
         document.getElementById('icone_epaule').style.opacity = '0';
+        document.getElementById('icone_epaule').style.opacity = '0';
+        document.querySelector('.container_progress').style.marginTop = '-5%';
 
         var point_res_cervicales = document.getElementById('point_res_cervicales');
         var point_res_yeux = document.getElementById('point_res_yeux');
@@ -804,7 +843,7 @@
         height: 20px;
         color: #333;
         font-weight: normal;
-        cursor: not-allowed;
+        cursor: pointer;
         padding: 15px;
         background: #e3e3e3;
       }
