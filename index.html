@@ -249,10 +249,10 @@
             <button id="point_res_epaules2" style="z-index: 100; width: 20px; height: 20px;" class="button_res_mannequin point_epaule" onclick="gererParties('handle2')"></button>
           </div>
           <img src="images/mannequin_buste.png" style="" height="800" width="600" alt="">
-          <div class="" style="position: absolute; width: 280px; top: 140px; left: -155px; text-align: left; padding: 10px; border-radius: 10px; box-shadow: 5px 5px 15px 5px rgba(231,111,81,0.41);">
-            <span style="display: flex; align-items: center; margin-bottom: 5%; opacity: 0.9; font-size: 1.1em;"><div style="width: 23px; height: 23px; border-radius: 100px; background-color: #54EA5F; margin-right: 4%;"></div> Réglages adaptés</span>
-            <span style="display: flex; align-items: center; margin-bottom: 5%; opacity: 0.9; font-size: 1.1em;"><div style="width: 23px; height: 23px; border-radius: 100px; background-color: #F5F34D; margin-right: 4%;"></div> Un réglage à améliorer</span>
-            <span style="display: flex; align-items: center; opacity: 0.9; font-size: 1.1em;"><div style="width: 23px; height: 23px; border-radius: 100px; background-color: #E76F51; margin-right: 4%;"></div> Plusieurs réglages à améliorer</span>
+          <div class="" style="position: absolute; width: 270px; top: 140px; left: -150px; text-align: left; padding: 10px; border-radius: 10px; box-shadow: 5px 5px 15px 5px rgba(231,111,81,0.41);">
+            <span id="leg_reg_ok" style="display: none; align-items: center; margin-bottom: 5%; opacity: 0.9; font-size: 1.1em;"><div style="width: 23px; height: 23px; border-radius: 100px; background-color: #54EA5F; margin-right: 4%;"></div> Réglages adaptés</span>
+            <span id="leg_reg_med" style="display: none; align-items: center; margin-bottom: 5%; opacity: 0.9; font-size: 1.1em;"><div style="width: 23px; height: 23px; border-radius: 100px; background-color: #F5F34D; margin-right: 4%;"></div> Un réglage à améliorer</span>
+            <span id="leg_reg_nul" style="display: none; align-items: center; opacity: 0.9; font-size: 1.1em;"><div style="width: 23px; height: 23px; border-radius: 100px; background-color: #E76F51; margin-right: 4%;"></div> Plusieurs réglages à améliorer</span>
           </div>
         </div>
         <div style="display:inline-block; margin-left: 40%; margin-top: 7%; width: 50%;" class="">
@@ -632,66 +632,70 @@
         if(liste_scores[0][0] == 1){
           document.getElementById('qu1').style.color = '#D0342C';
           document.getElementById('handle31').checked = true;
-          document.getElementById('qu1').classList.add("preco");
         }
         if(liste_scores[0][1] == 1){
           document.getElementById('qu2').style.color = '#D0342C';
           document.getElementById('handle32').checked = true;
-	  document.getElementById('qu2').classList.add("preco");
         }
         // Yeux
         if(liste_scores[1][0] == 1){
           document.getElementById('qu3').style.color = '#D0342C';
           document.getElementById('handle11').checked = true;
-	  document.getElementById('qu3').classList.add("preco");
         }
         if(liste_scores[1][1] == 1){
           document.getElementById('qu4').style.color = '#D0342C';
           document.getElementById('handle12').checked = true;
-	  document.getElementById('qu4').classList.add("preco");
         }
         // Epaules
         if(liste_scores[2][0] == 1){
           document.getElementById('qu5').style.color = '#D0342C';
           document.getElementById('handle21').checked = true;
-	  document.getElementById('qu5').classList.add("preco");
         }
         if(liste_scores[2][1] == 1){
           document.getElementById('qu6').style.color = '#D0342C';
           document.getElementById('handle22').checked = true;
-	  document.getElementById('qu6').classList.add("preco");
         }
         if(liste_scores[2][2] == 1){
           document.getElementById('qu7').style.color = '#D0342C';
           document.getElementById('handle23').checked = true;
-          document.getElementById('qu7').classList.add("preco");
+        }
+
+        if(liste_scores[2][3] == 0 || liste_scores[0][2] == 0 || liste_scores[1][2] == 0){
+          document.getElementById('leg_reg_ok').style.display = "flex";
         }
 
         if(liste_scores[0][2] == 1){
           point_res_cervicales.classList.add("signal_alerte");
           point_infos_cervicales.style.backgroundColor = '#F5F34D';
+          document.getElementById('leg_reg_med').style.display = "flex";
         } else if(liste_scores[0][2] == 2){
           point_res_cervicales.classList.add("signal_danger");
           point_infos_cervicales.style.backgroundColor = '#E76F51';
+          document.getElementById('leg_reg_nul').style.display = "flex";
         }
 
         if(liste_scores[1][2] == 1){
           point_res_yeux.classList.add("signal_alerte");
           point_infos_yeux.style.backgroundColor = '#F5F34D';
+          document.getElementById('leg_reg_med').style.display = "flex";
         } else if(liste_scores[1][2] == 2){
           point_res_yeux.classList.add("signal_danger");
           point_infos_yeux.style.backgroundColor = '#E76F51';
+          document.getElementById('leg_reg_nul').style.display = "flex";
         }
 
         if(liste_scores[2][3] > 0 && liste_scores[2][3] < 3){
           point_res_epaules.classList.add("signal_alerte");
           point_res_epaules2.classList.add("signal_alerte");
           point_infos_epaules.style.backgroundColor = '#F5F34D';
+          document.getElementById('leg_reg_med').style.display = "flex";
         } else if(liste_scores[2][3] > 2){
           point_res_epaules.classList.add("signal_danger");
           point_res_epaules2.classList.add("signal_danger");
           point_infos_epaules.style.backgroundColor = '#E76F51';
+          document.getElementById('leg_reg_nul').style.display = "flex";
         }
+
         document.getElementById('partie_epaules').style.display = 'none';
         document.getElementById('retour').style.display = 'none';
         document.getElementById('terminer').style.display = 'none';
@@ -883,11 +887,8 @@
         background: transparent;
       }
       .accordion .handle .label_sous_menu:before {
-        content: "✔️";
-      }   
-      .accordion .handle .preco:before {
         content: url(images/clique.png);
-      }   
+      }
       .accordion > input[type="checkbox"]:checked ~ .handle .label_sous_menu:before {
         content: "⇩";
       }
