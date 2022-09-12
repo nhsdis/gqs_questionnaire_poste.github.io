@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Poste de travail</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="informations.js"></script>
+  </head>
+  <body>
+
+    <img src="images/logo.png" style="position: absolute; top: 1.3%;" height="110" width="109" alt="">
+
+    <div id='save_params' style="display: none;">
+      <div id="params_un_ecran" style="display: none;" class="">
+        <img src="images/nb_ecrans_un.png" style="display:inline-block; vertical-align:middle;" height="40" width="45" alt="">
+        <span  style="font-size: 20px; margin-left: 4%;">J'utilise un écran</span>
+      </div>
+      <div id="params_plusieurs_ecran" style="display: none;" class="">
+        <img src="images/nb_ecrans_plusieurs.png" style="display:inline-block; vertical-align:middle;" height="42" width="88" alt="">
+        <span  style="font-size: 20px; margin-left: 4%;">J'utilise 2 écrans ou plus</span>
+      </div>
+      <div id="params_verres_pro_oui" style="display: none;" class="">
+        <img src="images/verres_pro_oui.png" style="display:inline-block; vertical-align:middle;" height="28" width="43" alt="">
+        <span  style="font-size: 20px; margin-left: 4%;">Je porte des verres progressifs</span>
+      </div>
+      <div id="params_verres_pro_non" style="display: none;" class="">
+        <img src="images/verres_pro_non.png" style="display:inline-block; vertical-align:middle;" height="28" width="43" alt="">
+        <span  style="font-size: 20px; margin-left: 4%;">Je ne porte pas de verres progressifs</span>
+      </div>
+    </div>
+
+    <div class="" style="position: absolute; right: 12.5%; margin-top: 2.5%; width: 25%;">
+      <div class="" style="position: absolute; bottom: -30%; left: 8%; display: flex; width: 80%; justify-content: space-around; align-items: center;">
+        <img id="icone_cervicales" src="images/icone_cervicales.png" style="opacity: 0; z-index: 100; margin-bottom: 2.5%;" height="80" width="70" alt="">
+        <img id="icone_yeux" src="images/icone_yeux.png" style="opacity: 0; z-index: 100; margin-top: 3%;" height="85" width="75" alt="">
+        <img id="icone_epaule" src="images/icone_epaule.png" style="opacity: 0; z-index: 100;" height="70" width="60" alt="">
+      </div>
+      <div class="container_progress">
+        <div class="progress-bar__container">
+          <div id="progression_barre" class="progress-bar"></div>
+          <h6 id="text_progression" style="width: 100%; text-align: center; opacity: 0.7; font-size: 20px; margin-top: 1%;" class="progress-bar__text">Réglage des paramètres ...</h6>
+        </div>
+        <h6 id="indic_progression" style="position: absolute; opacity: 0.7; font-size: 19px; color: grey; margin-top: 23%;" class="progress-bar__text">0 %</h6>
+      </div>
+    </div>
+
+    <div class="" id="titre_accueil">
+      <h1 style="text-align: center; font-size: 45px;">🖥️ Travail sur écran</h1>
+      <h2 style="text-align: center; font-size: 40px;">Je m'auto-évalue</h2>
+    </div>
+
+    <div class="" style="display: none;" id="titre_bilan">
+      <h1 style="text-align: center; font-size: 45px;">📝 Mon bilan :</h1>
+      <h4 style="text-align: center; opacity: 0.6;">🛈 Cliquez sur les différentes parties pour obtenir le détail.</h4>
+    </div>
+    <br>
+
+
+    <!-- ////////////////////// -->
+    <!-- //// PARTIE PARAMS ////-->
+    <!-- ////////////////////// -->
+
+    <div id="partie_params">
+      <br><br>
+      <div class="" style="">
+        <div class="container">
+          <div class="radio_container" style="width: 80%">
+            <p id="titre_params">Actuellement, j'utilise :</p>
+            <input type="radio" name="nb_ecrans" id="nb_ecrans_un" value="nb_ecrans_un" onchange="def_params()">
+            <label for="nb_ecrans_un" style="width: 90%">Un seul écran</label>
+            <input type="radio" name="nb_ecrans" id="nb_ecrans_plusieurs" value="nb_ecrans_plusieurs" onchange="def_params()">
+            <label for="nb_ecrans_plusieurs" style="width: 90%">Plusieurs écrans (2 ou +)</label>
+          </div>
+        </div>
+        <br><br>
+        <div class="container">
+          <div class="radio_container" style="width: 80%">
+            <p id="titre_params">Je porte des verres progressifs :</p>
+            <input type="radio" name="verres_pro" id="verres_pro_oui" value="verres_pro_oui" onchange="def_params()">
+            <label for="verres_pro_oui" style="width: 90%">Oui</label>
+            <input type="radio" name="verres_pro" id="verres_pro_non" value="verres_pro_non" onchange="def_params()">
+            <label for="verres_pro_non" style="width: 90%">Non</label>
+          </div>
+        </div>
+      </div>
+
+      <button type="button" name="button" id="valider_params" style="display: none; width: auto;" onclick="commencer_questionnaire()">C'est parti !</button>
+    </div>
+
+
+    <div class="" style="width: 100%;">
+      <div style="position: absolute; bottom: 35%; left: 1%;" class="">
+        <button type="button" name="button" id="retour" style="display: none; margin-top: 2%;" onclick="question_precedente()">⬅ | Précédent</button>
+      </div>
+
+      <!-- ////////////////////////// -->
+      <!-- //// PARTIE CERVICALES ////-->
+      <!-- ////////////////////////// -->
+
+      <fieldset id="partie_cervicales" style="display: none; margin: 0 auto; margin-top: 7%;" class="">
+        <div class="container">
+          <h2 for="" style="margin-bottom: 3%; font-size: 30px;" id="adapterQuestion1">1 • Votre écran est-il positionné en face de vous ?</h2>
+          <div style="justify-content: space-between; display: flex;" class="">
+            <div id="adapterImage1" class="" style="margin-right: 17%;">
+              <img src="images/face_ecran_1.png" style="display: inline-block; vertical-align:middle; " height="230" width="260" alt=""><br>
+              <a title="Mobilier.fr" style="text-decoration: none;font-style: italic; text-align: center; justify-content: center;"><span style="font-size: 12px; font-style: normal;">🛈</span> Source</a>
+            </div>
+            <div id="adapterImage2" class="" style="margin-right: 20%; display: none;">
+              <img src="images/face_ecran_2.png" style="vertical-align:middle;" height="190" width="240" alt=""><br>
+              <a title="ergo-motri-santé.fr" style="text-decoration: none;font-style: italic; text-align: center;"><span style="font-size: 12px; font-style: normal;">🛈</span> Source</a>
+            </div>
+            <div class="radio_container" style="align-self: center;">
+              <input type="radio" name="face_ecran" id="face_ecran_oui" value="face_ecran_oui" onclick="evaluer()">
+              <label for="face_ecran_oui">Oui</label>
+              <input type="radio" name="face_ecran" id="face_ecran_non" value="face_ecran_non" onclick="evaluer()">
+              <label for="face_ecran_non">Non</label>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="container">
+          <h2 for="" style="margin-bottom: 3%; margin-top: 1%; font-size: 30px;" id="adapterQuestion2">2 • Le haut de votre écran est-il à hauteur de vos yeux ?</h2>
+          <div style="justify-content: space-between; display: flex;" class="">
+            <div class="" style="margin-right: 20%;">
+              <img id="adapterImage3" src="images/haut_ecran.png" style="display:inline-block; vertical-align:middle;" height="210" width="220" alt=""><br>
+              <a title="Azergo" style="text-decoration: none;font-style: italic; text-align: center;"><span style="font-size: 12px; font-style: normal;">🛈</span> Source</a>
+            </div>
+            <div class="radio_container" style="align-self: center;">
+              <input type="radio" name="haut_ecran" id="haut_ecran_oui" value="haut_ecran_oui" onclick="evaluer()">
+              <label for="haut_ecran_oui">Oui</label>
+              <input type="radio" name="haut_ecran" id="haut_ecran_non" value="haut_ecran_non" onclick="evaluer()">
+              <label for="haut_ecran_non">Non</label>
+            </div>
+          </div>
+        </div>
+        <span id="affiche_score_cervicales"></span>
+      </fieldset>
+
+
+      <!-- //////////////////// -->
+      <!-- //// PARTIE YEUX ////-->
+      <!-- //////////////////// -->
+
+      <fieldset id="partie_yeux" style="display: none; margin: 0 auto; margin-top: 7%;" class="">
+        <div class="container">
+          <h2 for="" style="margin-bottom: 3%; font-size: 30px;">3 • Votre écran est-il perpendiculaire aux fenêtres ?</h2>
+          <div style="justify-content: space-between; display: flex;" class="">
+            <div class="" style="margin-right: 20%;">
+              <img src="images/per_fenetres.png" style="display:inline-block; vertical-align:middle;" height="220" width="200" alt=""><br>
+              <a title="Suvapro" style="text-decoration: none;font-style: italic; text-align: center;"><span style="font-size: 12px; font-style: normal;">🛈</span> Source</a>
+            </div>
+            <div class="radio_container" style="align-self: center;">
+              <input type="radio" name="per_ecran" id="per_ecran_oui" value="per_ecran_oui" onclick="evaluer()">
+              <label for="per_ecran_oui">Oui</label>
+              <input type="radio" name="per_ecran" id="per_ecran_non" value="per_ecran_non" onclick="evaluer()">
+              <label for="per_ecran_non">Non</label>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <h2 for="" style="margin-top: 1%; font-size: 30px;">4 • Avez-vous déjà ajusté la luminosité de votre écran ?</h2>
+          <div style="justify-content: space-between; display: flex;" class="">
+            <div class="" style="margin-right: 15%;">
+              <img src="images/lum_ecran_icone.png" style="display:inline-block; vertical-align:middle;" height="200" width="200" alt=""><br>
+              <a title="Flaticon.com" style="text-decoration: none;font-style: italic;"><span style="font-size: 12px; font-style: normal;">🛈</span> Source</a>
+            </div>
+            <div class="radio_container" style="align-self: center;">
+              <input type="radio" name="lum_ecran" id="lum_ecran_oui" value="lum_ecran_oui" onclick="evaluer()">
+              <label for="lum_ecran_oui">Oui</label>
+              <input type="radio" name="lum_ecran" id="lum_ecran_non" value="lum_ecran_non" onclick="evaluer()">
+              <label for="lum_ecran_non">Non</label>
+            </div>
+          </div>
+        </div>
+        <span id="affiche_score_yeux"></span>
+      </fieldset>
+
+
+      <!-- /////////////////////// -->
+      <!-- //// PARTIE EPAULES ////-->
+      <!-- /////////////////////// -->
+
+      <fieldset id="partie_epaules" style="display: none; margin: 0 auto; margin-top: 7%;" class="">
+        <div class="container">
+          <h2 for="" style="margin-bottom: 1%; font-size: 30px;">5 • Vos avant-bras reposent-ils sur les accoudoirs ou sur le bureau ?</h2>
+          <div style="justify-content: space-between; display: flex;" class="">
+            <div class="" style="margin-right: 15%; display: flex;">
+              <a title="Suvapro" style="text-decoration: none;font-style: italic; text-align: center; align-self: flex-end;"><span style="font-size: 12px; font-style: normal;">🛈</span> Source</a>
+              <img src="images/avant_bras.png" style="display:inline-block; vertical-align:middle;" height="160" width="140" alt="">
+            </div>
+            <div class="radio_container" style="align-self: center;">
+              <input type="radio" name="avant_bras" id="avant_bras_oui" value="avant_bras_oui" onclick="evaluer()">
+              <label for="avant_bras_oui">Oui</label>
+              <input type="radio" name="avant_bras" id="avant_bras_non" value="avant_bras_non" onclick="evaluer()">
+              <label for="avant_bras_non">Non</label>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <h2 for="" style="margin-bottom: 1%; font-size: 30px;">6 • Votre souris est-elle positionnée à proximité immédiate, devant vous ?</h2>
+          <div style="justify-content: space-between; display: flex;" class="">
+            <div class="" style="margin-right: 15%; display: flex;">
+              <a title="sistlib.org" style="text-decoration: none;font-style: italic; text-align: center; align-self: flex-end;"><span style="font-size: 12px; font-style: normal;">🛈</span> Source</a>
+              <img src="images/souris_eloignee.png" style="display:inline-block; vertical-align:middle;" height="150" width="200" alt="">
+            </div>
+            <div class="radio_container" style="align-self: center;">
+              <input type="radio" name="souris_proche" id="souris_proche_oui" value="souris_proche_oui" onclick="evaluer()">
+              <label for="souris_proche_oui">Oui</label>
+              <input type="radio" name="souris_proche" id="souris_proche_non" value="souris_proche_non" onclick="evaluer()">
+              <label for="souris_proche_non">Non</label>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <h2 for="" style="font-size: 30px;">7 • Votre clavier est-il éloigné d'au moins 10 cm du rebord de votre bureau ?</h2>
+          <div style="justify-content: space-between; display: flex;" class="">
+            <div class="" style="margin-right: 15%; display: flex; ">
+              <a title="Sista" style="text-decoration: none;font-style: italic; text-align: center; align-self: flex-end;"><span style="font-size: 12px; font-style: normal;">🛈</span> Source</a>
+              <img src="images/clavier_loin.png" style="display:inline-block; vertical-align:middle;" height="150" width="390" alt="">
+            </div>
+            <div class="radio_container" style="align-self: center;">
+              <input type="radio" name="clavier_loin" id="clavier_loin_oui" value="clavier_loin_oui" onclick="evaluer()">
+              <label for="clavier_loin_oui">Oui</label>
+              <input type="radio" name="clavier_loin" id="clavier_loin_non" value="clavier_loin_non" onclick="evaluer()">
+              <label for="clavier_loin_non">Non</label>
+            </div>
+          </div>
+        </div>
+        <span id="affiche_score_epaules"></span>
+      </fieldset>
+
+      <!-- ///////////////////////// -->
+      <!-- //// PARTIE RESULTATS ////-->
+      <!-- ///////////////////////// -->
+
+      <div id="partie_resultats" style="text-align: center; display: none; width: 100%;" class="">
+        <div class="" style="position: fixed; left: 50%; top: 55%; transform: translate(-130%, -50%);">
+          <div style="position: absolute; top: -210px; left: 271px;" class="wrap">
+            <button id="point_res_yeux" style="z-index: 100; width: 20px; height: 20px;" class="button_res_mannequin point_yeux" onclick="gererParties('handle1')"></button>
+          </div>
+          <div style="position: absolute; top: -90px; left: 271px;" class="wrap">
+            <button id="point_res_cervicales" style="z-index: 100; width: 20px; height: 20px;" class="button_res_mannequin point_cervicales" onclick="gererParties('handle3')"></button>
+          </div>
+          <div style="position: absolute; top: 20px; left: 103px;" class="wrap">
+            <button id="point_res_epaules" style="z-index: 100; width: 20px; height: 20px;" class="button_res_mannequin point_epaule" onclick="gererParties('handle2')"></button>
+          </div>
+          <div style="position: absolute; top: 20px; left: 442px;" class="wrap">
+            <button id="point_res_epaules2" style="z-index: 100; width: 20px; height: 20px;" class="button_res_mannequin point_epaule" onclick="gererParties('handle2')"></button>
+          </div>
+          <img src="images/mannequin_buste.png" style="" height="800" width="600" alt="">
+          <div class="" style="position: absolute; width: 270px; top: 140px; left: -150px; text-align: left; padding: 10px; border-radius: 10px; box-shadow: 5px 5px 15px 5px rgba(231,111,81,0.41);">
+            <span id="leg_reg_ok" style="display: none; align-items: center; margin-bottom: 5%; opacity: 0.9;"><div style="width: 23px; height: 23px; border-radius: 100px; background-color: #54EA5F; margin-right: 4%;"></div> Réglages adaptés</span>
+            <span id="leg_reg_med" style="display: none; align-items: center; margin-bottom: 5%; opacity: 0.9;"><div style="width: 23px; height: 23px; border-radius: 100px; background-color: #F5F34D; margin-right: 4%;"></div> Un réglage à améliorer</span>
+            <span id="leg_reg_nul" style="display: none; align-items: center; opacity: 0.9;"><div style="width: 23px; height: 23px; border-radius: 100px; background-color: #E76F51; margin-right: 4%;"></div> Plusieurs réglages à améliorer</span>
+          </div>
+        </div>
+        <div style="display:inline-block; margin-left: 40%; margin-top: 7%; width: 50%;" class="">
+          <div style="text-align: left; display: flex;" class="">
+            <section class="accordion">
+              <input type="checkbox" name="collapse" id="handle1" onclick="gererParties(this.id)">
+              <h2 class="handle">
+                <label for="handle1" style="display: flex; align-items: center;"><div id="point_infos_yeux" style="width: 23px; height: 23px; border-radius: 100px; background-color: #54EA5F; margin-right: 2%;"></div> Mes yeux</label>
+              </h2>
+              <div class="content">
+                <section class="accordion" style="width: 95%; margin: 0 auto;">
+                  <input type="checkbox" name="colla" id="handle11" onclick="gererSousParties(this.id)">
+                  <h2 class="handle">
+                    <label id="qu3" for="handle11" class="label_sous_menu" style="text-align: left; padding-bottom: 10px; user-select: none; font-weight: bold;">Les fenêtres</label>
+                  </h2>
+                  <div class="content" style="border: 0px; padding: 0px;">
+                    <p id="informationsYeux1" style="font-size: 17px; font-family: "Open Sans", sans-serif;"></p>
+                  </div>
+                </section>
+                <section class="accordion" style="width: 95%; margin: 0 auto;">
+                  <input type="checkbox" name="colla" id="handle12" onclick="gererSousParties(this.id)">
+                  <h2 class="handle">
+                    <label id="qu4" for="handle12" class="label_sous_menu" style="text-align: left; padding-bottom: 10px; user-select: none; font-weight: bold;">La lumière bleue</label>
+                  </h2>
+                  <div class="content" style="border: 0px; padding: 0px;">
+                    <p id="informationsYeux2" style="font-size: 17px; font-family: "Open Sans", sans-serif;"></p>
+                  </div>
+                </section>
+              </div>
+            </section>
+          </div>
+          <div style="text-align: left; display: flex;" class="">
+            <section class="accordion">
+              <input type="checkbox" name="collapse" id="handle3" onclick="gererParties(this.id)">
+              <h2 class="handle">
+                <label for="handle3" style="display: flex; align-items: center;"><div id="point_infos_cervicales" style="width: 23px; height: 23px; border-radius: 100px; background-color: #54EA5F; margin-right: 2%;"></div> Mes cervicales</label>
+              </h2>
+              <div class="content">
+                <section class="accordion" style="width: 95%; margin: 0 auto;">
+                  <input type="checkbox" name="colla" id="handle31" onclick="gererSousParties(this.id)">
+                  <h2 class="handle">
+                    <label id="qu1" for="handle31" class="label_sous_menu" style="text-align: left; padding-bottom: 10px; user-select: none; font-weight: bold;">L'écran principal</label>
+                  </h2>
+                  <div class="content" style="border: 0px; padding: 0px;">
+                    <p id="informationsCervicales1" style="font-size: 17px; font-family: "Open Sans", sans-serif;"></p>
+                  </div>
+                </section>
+                <section class="accordion" style="width: 95%; margin: 0 auto;">
+                  <input type="checkbox" name="colla" id="handle32" onclick="gererSousParties(this.id)">
+                  <h2 class="handle">
+                    <label id="qu2" for="handle32" class="label_sous_menu" style="text-align: left; padding-bottom: 10px; user-select: none; font-weight: bold;">Réglage de l'écran</label>
+                  </h2>
+                  <div class="content" style="border: 0px; padding: 0px;">
+                    <p id="informationsCervicales2" style="font-size: 17px; font-family: "Open Sans", sans-serif;"></p>
+                  </div>
+                </section>
+              </div>
+            </section>
+          </div>
+          <div style="text-align: left; display: flex;" class="">
+            <section class="accordion">
+              <input type="checkbox" name="collapse" id="handle2" onclick="gererParties(this.id)">
+              <h2 class="handle">
+                <label for="handle2" style="display: flex; align-items: center;"><div id="point_infos_epaules" style="width: 23px; height: 23px; border-radius: 100px; background-color: #54EA5F; margin-right: 2%;"></div> Mes épaules</label>
+              </h2>
+              <div class="content">
+                <section class="accordion" style="width: 95%;">
+                  <input type="checkbox" name="colla" id="handle21" onclick="gererSousParties(this.id)">
+                  <h2 class="handle">
+                    <label id="qu5" for="handle21" class="label_sous_menu" style="text-align: left; padding-bottom: 10px; user-select: none; font-weight: bold;">Vos avant bras</label>
+                  </h2>
+                  <div class="content" style="border: 0px; padding: 0px;">
+                    <p id="informationsEpaules1" style="font-size: 17px; font-family: "Open Sans", sans-serif;"></p>
+                  </div>
+                </section>
+                <section class="accordion" style="width: 95%;">
+                  <input type="checkbox" name="colla" id="handle22" onclick="gererSousParties(this.id)">
+                  <h2 class="handle">
+                    <label id="qu6" for="handle22" class="label_sous_menu" style="text-align: left; padding-bottom: 10px; user-select: none; font-weight: bold;">Votre souris</label>
+                  </h2>
+                  <div class="content" style="border: 0px; padding: 0px;">
+                    <p id="informationsEpaules2" style="font-size: 17px; font-family: "Open Sans", sans-serif;"></p>
+                  </div>
+                </section>
+                <section class="accordion" style="width: 95%;">
+                  <input type="checkbox" name="colla" id="handle23" onclick="gererSousParties(this.id)">
+                  <h2 class="handle">
+                    <label id="qu7" for="handle23" class="label_sous_menu" style="text-align: left; padding-bottom: 10px; user-select: none; font-weight: bold;">Votre clavier</label>
+                  </h2>
+                  <div class="content" style="border: 0px; padding: 0px;">
+                    <p id="informationsEpaules3" style="font-size: 17px; font-family: "Open Sans", sans-serif;"></p>
+                  </div>
+                </section>
+              </div>
+            </section>
+          </div>
+          <div class="" style="margin-top: 5%; margin-left: -18%;">
+            <span style="font-size: 20px; font-weight: bold; font-family: "Open Sans", sans-serif;">🛈 Si besoin, vous pouvez contacter la mission SSQVS</span><br>
+            <span style="font-size: 18px; font-weight: bold; font-family: "Open Sans", sans-serif;">ssqvs@sdis38.fr</span>
+            <button type="button" name="button" id="recommencer" style="width: 260px; margin-top: 5%;" onclick="location.reload(true)">Recommencer | 🗘</button>
+          </div>
+        </div>
+      </div>
+
+      <div style="position: absolute; bottom: 35%; right: 1%;" class="">
+        <button type="button" name="button" id="continuer" style="display: none;" onclick="question_suivante()">Continuer | ➡</button>
+        <button type="button" name="button" id="terminer" style="display: none;" onclick="terminer()">✓ | Terminer</button>
+      </div>
+    </div>
+
+
+
+
+    <script type="text/javascript">
+
+      function gererParties(nom_partie){
+        var liste_scores = evaluer();
+        document.getElementById('progression_barre').style.left = '0%';
+        document.getElementById('indic_progression').innerHTML = '100 %';
+
+        document.querySelectorAll('input[name=collapse]').forEach(el => el.checked = false);
+        document.querySelectorAll('input[name=colla]').forEach(el => el.checked = false);
+
+        if(liste_scores[0][0] == 1){
+          document.getElementById('handle31').checked = true;
+        }
+        if(liste_scores[0][1] == 1){
+          document.getElementById('handle32').checked = true;
+        }
+        // Yeux
+        if(liste_scores[1][0] == 1){
+          document.getElementById('handle11').checked = true;
+        }
+        if(liste_scores[1][1] == 1){
+          document.getElementById('handle12').checked = true;
+        }
+        // Epaules
+        if(liste_scores[2][0] == 1){
+          document.getElementById('handle21').checked = true;
+        }
+        if(liste_scores[2][1] == 1){
+          document.getElementById('handle22').checked = true;
+        }
+        if(liste_scores[2][2] == 1){
+          document.getElementById('handle23').checked = true;
+        }
+
+        document.getElementById(nom_partie).checked = true;
+      }
+
+      function gererSousParties(nom_partie){
+        document.querySelectorAll('input[name=colla]').forEach(el => el.checked = false);
+        document.getElementById(nom_partie).checked = true;
+      }
+
+      function def_params(){
+        var nb_ecrans = document.querySelector('input[name="nb_ecrans"]:checked') ? document.querySelector('input[name="nb_ecrans"]:checked').value : "";
+        var verres_pro = document.querySelector('input[name="verres_pro"]:checked') ? document.querySelector('input[name="verres_pro"]:checked').value : "";
+        if(nb_ecrans != "" && verres_pro != ""){
+          document.getElementById("valider_params").style.display = "flex";
+        }
+      }
+
+      function commencer_questionnaire(){
+        var nb_ecrans = document.querySelector('input[name="nb_ecrans"]:checked').value;
+        var verres_pro = document.querySelector('input[name="verres_pro"]:checked').value;
+        document.getElementById("save_params").style.display = "block";
+        document.getElementById("titre_accueil").style.display = "none";
+        document.getElementById("text_progression").style.display = "none";
+
+        // INIT TEXTES INFOS
+        document.getElementById('informationsCervicales1').textContent += infosCervicales.question1;
+        document.getElementById('informationsYeux1').textContent += infosYeux.question1;
+        document.getElementById('informationsYeux2').textContent += infosYeux.question2;
+        document.getElementById('informationsEpaules1').textContent += infosEpaules.question1;
+        document.getElementById('informationsEpaules2').textContent += infosEpaules.question2;
+        document.getElementById('informationsEpaules3').textContent += infosEpaules.question3;
+
+        if(nb_ecrans == "nb_ecrans_un"){
+          document.getElementById("params_un_ecran").style.display = "block";
+          document.getElementById("params_plusieurs_ecran").style.display = "none";
+        } else {
+          document.getElementById("params_plusieurs_ecran").style.display = "block";
+          document.getElementById("params_un_ecran").style.display = "none";
+          document.getElementById("adapterQuestion1").innerHTML = "1 • Utilisez-vous un écran principal positionné face à vous ?";
+          document.getElementById("adapterImage1").style.display = "none";
+          document.getElementById("adapterImage2").style.display = "inline-block";
+        }
+        if(verres_pro == "verres_pro_oui"){
+          document.getElementById("params_verres_pro_oui").style.display = "block";
+          document.getElementById("params_verres_pro_non").style.display = "none";
+          document.getElementById("adapterQuestion2").innerHTML = "2 • Votre écran est-il en position basse et incliné vers l’avant ?";
+          document.getElementById("adapterImage3").src = "images/haut_ecran_verres.png";
+          // INIT TEXTES INFOS
+          document.getElementById('informationsCervicales2').textContent += infosCervicales.question2_verres_pro;
+        } else {
+          document.getElementById("params_verres_pro_non").style.display = "block";
+          document.getElementById("params_verres_pro_oui").style.display = "none";
+          // INIT TEXTES INFOS
+          document.getElementById('informationsCervicales2').textContent += infosCervicales.question2_sans_verres_pro;
+        }
+        document.getElementById('partie_params').style.display = 'none';
+        document.getElementById('partie_cervicales').style.display = 'block';
+      }
+
+      function question_suivante(){
+        var per_ecran = document.querySelector('input[name="per_ecran"]:checked') ? document.querySelector('input[name="per_ecran"]:checked').value : "";
+        var lum_ecran = document.querySelector('input[name="lum_ecran"]:checked') ? document.querySelector('input[name="lum_ecran"]:checked').value : "";
+        var avant_bras = document.querySelector('input[name="avant_bras"]:checked') ? document.querySelector('input[name="avant_bras"]:checked').value : "";
+        var souris_proche = document.querySelector('input[name="souris_proche"]:checked') ? document.querySelector('input[name="souris_proche"]:checked').value : "";
+        var clavier_loin = document.querySelector('input[name="clavier_loin"]:checked') ? document.querySelector('input[name="clavier_loin"]:checked').value : "";
+
+        if(document.getElementById('partie_cervicales').style.display != "none"){
+          document.getElementById('partie_cervicales').style.display = 'none';
+          document.getElementById('partie_yeux').style.display = 'block';
+          document.getElementById('retour').style.display = 'block';
+          if(per_ecran != "" && lum_ecran != ""){
+            document.getElementById('continuer').style.display = "flex";
+          } else {
+            document.getElementById('continuer').style.display = 'none';
+          }
+        } else if(document.getElementById('partie_yeux').style.display != "none"){
+          document.getElementById('partie_yeux').style.display = 'none';
+          document.getElementById('partie_epaules').style.display = 'block';
+          document.getElementById('continuer').style.display = 'none';
+          if(avant_bras != "" && souris_proche != "" && clavier_loin != ""){
+            document.getElementById('terminer').style.display = "block";
+          } else {
+            document.getElementById('terminer').style.display = 'none';
+          }
+
+        }
+      }
+
+      function question_precedente(){
+        if(document.getElementById('partie_epaules').style.display != "none"){
+          document.getElementById('partie_epaules').style.display = 'none';
+          document.getElementById('partie_yeux').style.display = 'block';
+          document.getElementById('continuer').style.display = 'block';
+          document.getElementById('terminer').style.display = "none";
+        } else if(document.getElementById('partie_yeux').style.display != "none"){
+          document.getElementById('partie_yeux').style.display = 'none';
+          document.getElementById('partie_cervicales').style.display = 'block';
+          document.getElementById('retour').style.display = 'none';
+          document.getElementById('continuer').style.display = 'block';
+        }
+      }
+
+      function evaluer(){
+        var face_ecran = document.querySelector('input[name="face_ecran"]:checked') ? document.querySelector('input[name="face_ecran"]:checked').value : "";
+        var haut_ecran = document.querySelector('input[name="haut_ecran"]:checked') ? document.querySelector('input[name="haut_ecran"]:checked').value : "";
+        var per_ecran = document.querySelector('input[name="per_ecran"]:checked') ? document.querySelector('input[name="per_ecran"]:checked').value : "";
+        var lum_ecran = document.querySelector('input[name="lum_ecran"]:checked') ? document.querySelector('input[name="lum_ecran"]:checked').value : "";
+        var avant_bras = document.querySelector('input[name="avant_bras"]:checked') ? document.querySelector('input[name="avant_bras"]:checked').value : "";
+        var souris_proche = document.querySelector('input[name="souris_proche"]:checked') ? document.querySelector('input[name="souris_proche"]:checked').value : "";
+        var clavier_loin = document.querySelector('input[name="clavier_loin"]:checked') ? document.querySelector('input[name="clavier_loin"]:checked').value : "";
+
+        var progression = document.getElementById('progression_barre');
+
+        // Partie CERVICALES
+        var score_cervicales = [0,0,0];
+        var compteurScoreCervicales = 0;
+        if(face_ecran == "face_ecran_non"){
+          compteurScoreCervicales += 1;
+          score_cervicales[0] = 1;
+        }
+        if(haut_ecran == "haut_ecran_non"){
+          compteurScoreCervicales += 1;
+          score_cervicales[1] = 1;
+        }
+        score_cervicales[2] = compteurScoreCervicales;
+
+        if(face_ecran != "" && haut_ecran != ""){
+          progression.style.left = '-80%';
+          if(document.getElementById('partie_resultats').style.display == 'none'){
+            document.getElementById('icone_cervicales').style.opacity = '0.6';
+          }
+        } else if(face_ecran != ""){
+          progression.style.left = '-90%';
+        } else if(haut_ecran != ""){
+          progression.style.left = '-90%';
+        }
+
+        if(document.getElementById('partie_cervicales').style.display != "none" && face_ecran != "" && haut_ecran != ""){
+          document.getElementById('continuer').style.display = "flex";
+        }
+
+        // Partie YEUX
+        var score_yeux = [0,0,0];
+        var compteurScoreYeux = 0;
+        if(per_ecran == "per_ecran_non"){
+          compteurScoreYeux += 1;
+          score_yeux[0] = 1;
+        }
+        if(lum_ecran == "lum_ecran_non"){
+          compteurScoreYeux += 1;
+          score_yeux[1] = 1;
+        }
+        score_yeux[2] = compteurScoreYeux;
+
+        if(per_ecran != "" && lum_ecran != ""){
+          progression.style.left = '-50%';
+          if(document.getElementById('partie_resultats').style.display == 'none'){
+            document.getElementById('icone_yeux').style.opacity = '0.4';
+          }
+        } else if(per_ecran != ""){
+          progression.style.left = '-65%';
+        } else if(lum_ecran != ""){
+          progression.style.left = '-65%';
+        }
+
+        if(document.getElementById('partie_yeux').style.display != "none" && per_ecran != "" && lum_ecran != ""){
+          document.getElementById('continuer').style.display = "flex";
+        }
+
+        // Partie EPAULES
+        var score_epaules = [0,0,0,0];
+        var compteurScoreEpaules = 0;
+        if(avant_bras == "avant_bras_non"){
+          compteurScoreEpaules += 2;
+          score_epaules[0] = 1;
+        }
+        if(souris_proche == "souris_proche_non"){
+          compteurScoreEpaules += 1;
+          score_epaules[1] = 1;
+        }
+        if(clavier_loin == "clavier_loin_non"){
+          compteurScoreEpaules += 2;
+          score_epaules[2] = 1;
+        }
+        score_epaules[3] = compteurScoreEpaules;
+
+        if(avant_bras != "" && souris_proche != "" && clavier_loin != ""){
+          progression.style.left = '-10%';
+          if(document.getElementById('partie_resultats').style.display == 'none'){
+            document.getElementById('icone_epaule').style.opacity = '0.6';
+          }
+        } else if((avant_bras != "" && souris_proche != "") || (avant_bras != "" && clavier_loin != "") || (souris_proche != "" && clavier_loin != "")){
+          progression.style.left = '-25%';
+        } else if (avant_bras != "" || souris_proche != "" || clavier_loin != ""){
+          progression.style.left = '-35%';
+        }
+
+        if(document.getElementById('partie_epaules').style.display != "none" && avant_bras != "" && souris_proche != "" && clavier_loin != ""){
+          document.getElementById('terminer').style.display = "flex";
+        }
+
+        document.getElementById('indic_progression').innerHTML = 100 - progression.style.left.slice(1, -1) + ' %';
+
+        return [score_cervicales, score_yeux, score_epaules];
+      }
+
+      function terminer(){
+        var liste_scores = evaluer();
+
+        document.getElementById('progression_barre').style.left = '0%';
+        document.getElementById('titre_bilan').style.display = 'block';
+        document.getElementById('indic_progression').innerHTML = '100 %';
+        document.getElementById('text_progression').style.display = 'block';
+        document.getElementById('text_progression').innerHTML = 'Fin du questionnaire !';
+        document.getElementById('icone_cervicales').style.opacity = '0';
+        document.getElementById('icone_yeux').style.opacity = '0';
+        document.getElementById('icone_epaule').style.opacity = '0';
+        document.getElementById('icone_epaule').style.opacity = '0';
+        document.querySelector('.container_progress').style.marginTop = '-5%';
+
+        var point_res_cervicales = document.getElementById('point_res_cervicales');
+        var point_res_yeux = document.getElementById('point_res_yeux');
+        var point_res_epaules = document.getElementById('point_res_epaules');
+        var point_res_epaules2 = document.getElementById('point_res_epaules2');
+        var point_infos_yeux = document.getElementById('point_infos_yeux');
+        var point_infos_cervicales = document.getElementById('point_infos_cervicales');
+        var point_infos_epaules = document.getElementById('point_infos_epaules');
+
+        // METTRE EN AVANT LES PROBLEMES
+        // Cervicales
+        if(liste_scores[0][0] == 1){
+          document.getElementById('qu1').style.color = '#D0342C';
+          document.getElementById('handle31').checked = true;
+        }
+        if(liste_scores[0][1] == 1){
+          document.getElementById('qu2').style.color = '#D0342C';
+          document.getElementById('handle32').checked = true;
+        }
+        // Yeux
+        if(liste_scores[1][0] == 1){
+          document.getElementById('qu3').style.color = '#D0342C';
+          document.getElementById('handle11').checked = true;
+        }
+        if(liste_scores[1][1] == 1){
+          document.getElementById('qu4').style.color = '#D0342C';
+          document.getElementById('handle12').checked = true;
+        }
+        // Epaules
+        if(liste_scores[2][0] == 1){
+          document.getElementById('qu5').style.color = '#D0342C';
+          document.getElementById('handle21').checked = true;
+        }
+        if(liste_scores[2][1] == 1){
+          document.getElementById('qu6').style.color = '#D0342C';
+          document.getElementById('handle22').checked = true;
+        }
+        if(liste_scores[2][2] == 1){
+          document.getElementById('qu7').style.color = '#D0342C';
+          document.getElementById('handle23').checked = true;
+        }
+
+        if(liste_scores[2][3] == 0 || liste_scores[0][2] == 0 || liste_scores[1][2] == 0){
+          document.getElementById('leg_reg_ok').style.display = "flex";
+        }
+
+        if(liste_scores[0][2] == 1){
+          point_res_cervicales.classList.add("signal_alerte");
+          point_infos_cervicales.style.backgroundColor = '#F5F34D';
+          document.getElementById('leg_reg_med').style.display = "flex";
+        } else if(liste_scores[0][2] == 2){
+          point_res_cervicales.classList.add("signal_danger");
+          point_infos_cervicales.style.backgroundColor = '#E76F51';
+          document.getElementById('leg_reg_nul').style.display = "flex";
+        }
+
+        if(liste_scores[1][2] == 1){
+          point_res_yeux.classList.add("signal_alerte");
+          point_infos_yeux.style.backgroundColor = '#F5F34D';
+          document.getElementById('leg_reg_med').style.display = "flex";
+        } else if(liste_scores[1][2] == 2){
+          point_res_yeux.classList.add("signal_danger");
+          point_infos_yeux.style.backgroundColor = '#E76F51';
+          document.getElementById('leg_reg_nul').style.display = "flex";
+        }
+
+        if(liste_scores[2][3] > 0 && liste_scores[2][3] < 3){
+          point_res_epaules.classList.add("signal_alerte");
+          point_res_epaules2.classList.add("signal_alerte");
+          point_infos_epaules.style.backgroundColor = '#F5F34D';
+          document.getElementById('leg_reg_med').style.display = "flex";
+        } else if(liste_scores[2][3] > 2){
+          point_res_epaules.classList.add("signal_danger");
+          point_res_epaules2.classList.add("signal_danger");
+          point_infos_epaules.style.backgroundColor = '#E76F51';
+          document.getElementById('leg_reg_nul').style.display = "flex";
+        }
+
+        document.getElementById('partie_epaules').style.display = 'none';
+        document.getElementById('retour').style.display = 'none';
+        document.getElementById('terminer').style.display = 'none';
+        document.getElementById('partie_resultats').style.display = 'inline-block';
+      }
+    </script>
+
+    <style media="screen">
+      body{
+        background-color: #DDDDDD;
+      }
+      fieldset{
+        width: 70%;
+        border: 1px solid #e76f51;
+        border-top: 20px solid #e76f51;
+        border-bottom: 10px solid #e76f51;
+        border-radius: 20px;
+      }
+      p, span, h1, h2, h3, h4, h5, h6{
+        font-family: "Open Sans", sans-serif;
+      }
+      .container{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .radio_container {
+        margin-top: 5%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #cecece;
+        width: 450px;
+        height: 50px;
+        border-radius: 9999px;
+        box-shadow: inset 0.5px 0.5px 2px 0 rgba(0, 0, 0, 0.15);
+      }
+      input[type="radio"] {
+        appearance: none;
+        display: none;
+      }
+      label {
+        font-family: "Open Sans", sans-serif;
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: inherit;
+        width: 80px;
+        height: 40px;
+        text-align: center;
+        border-radius: 9999px;
+        overflow: hidden;
+        transition: linear 0.3s;
+        color: #6e6e6edd;
+        cursor: pointer;
+        user-select: none;
+      }
+      input[type="radio"]:checked + label {
+        background-color: #1e90ff;
+        color: #f1f3f5;
+        font-weight: 900;
+        transition: 0.3s;
+        user-select: none;
+      }
+      #titre_params{
+        color: white;
+        background-color: #333333;
+        width: 100%;
+        height: 100%;
+        margin-right: 1%;
+        line-height: 1.6em;
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.5em;
+        padding-top: 0.7%;
+        border-radius: 9999px 4000px 4000px 9999px;
+      }
+      button{
+        box-sizing: border-box;
+        appearance: none;
+        width: 230px;
+        background-color: transparent;
+        border: 2px solid #2ecc71;
+        border-radius: 0.6em;
+        color: #2ecc71;
+        cursor: pointer;
+        display: flex;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1;
+        margin: 3% auto 0px auto;
+        padding: 1.2em 2.8em;
+        text-decoration: none;
+        text-align: center;
+        text-transform: uppercase;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 700;
+        transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+      }
+      button:hover{
+        color: #fff;
+        box-shadow: 0 0 40px 40px #2ecc71 inset;
+        outline: 0;
+      }
+      #retour, #recommencer{
+        border: 2px solid #BBBBBB;
+        color: #BBBBBB;
+      }
+      #retour:hover{
+        color: #CC4136;
+        box-shadow: 0 0 40px 40px #CCCCCC inset;
+        outline: 0;
+      }
+      #recommencer:hover{
+        color: #E76F51;
+        box-shadow: 0 0 40px 40px #CCCCCC inset;
+        outline: 0;
+      }
+      #save_params{
+        position: absolute;
+        top: 1.9%;
+        left: 14.5%;
+        width: 22%;
+        align-items: center;
+        padding: 15px;
+        border: 1px solid #CCCCCC;
+        border-radius: 10px;
+      }
+
+      /* MENUS DEROULANT */
+      .accordion {
+        margin-bottom: 1em;
+        margin-left: 5%;
+        width: 70%;
+      }
+      .accordion > input[type="checkbox"]:checked ~ .content {
+        height: auto;
+        overflow: visible;
+        padding: 15px;
+        border: 1px solid #e8e8e8;
+        border-top: 0;
+      }
+      .accordion .handle {
+        margin: 0;
+        font-size: 1.125em;
+        line-height: 1.2em;
+      }
+      .accordion label {
+        display: block;
+        border-radius: 10px;
+        width: auto;
+        height: 20px;
+        color: #333;
+        font-weight: normal;
+        cursor: pointer;
+        padding: 15px;
+        background: #e3e3e3;
+      }
+      .accordion .label_sous_menu {
+        background: transparent;
+        cursor: pointer;
+      }
+      .accordion .label_sous_menu:hover,
+      .accordion .label_sous_menu:focus {
+        background: transparent;
+      }
+      .accordion label:hover,
+      .accordion label:focus {
+        background: #d8d8d8;
+      }
+      .accordion .handle label:before {
+        display: inline-block;
+        margin-right: 10px;
+        font-size: 20px;
+        line-height: 1.556em;
+        vertical-align: middle;
+      }
+      .accordion > input[type="checkbox"]:checked ~ .handle label:before {
+        content: "";
+      }
+      .accordion > input[type="checkbox"]:checked ~ .handle label {
+        background: #eeeeee;
+      }
+      .accordion > input[type="checkbox"]:checked ~ .handle .label_sous_menu {
+        background: transparent;
+      }
+      .accordion .handle .label_sous_menu:before {
+        content: url(images/clique.png);
+      }
+      .accordion > input[type="checkbox"]:checked ~ .handle .label_sous_menu:before {
+        content: "⇩";
+      }
+      .accordion > input[type="checkbox"] {
+        position: absolute;
+        left: -100vw;
+      }
+      .accordion .content {
+        overflow-y: hidden;
+        height: 0;
+      }
+
+      /* Progress bar */
+      .container_progress {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+      }
+
+      .progress-bar__container {
+        width: 80%;
+        height: 2rem;
+        border-radius: 2rem;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.5s;
+        will-change: transform;
+        box-shadow: 0 0 5px #e76f51;
+      }
+
+      .progress-bar {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        content: "";
+        background-color: #e76f51;
+        top:0;
+        bottom: 0;
+        left: -100%;
+        border-radius: inherit;
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        color: white;
+        font-family: "Open Sans", sans-serif;
+      }
+
+      /* BOUTONS RES MANNEQUIN */
+      .wrap {
+        height: 80%;
+        margin-top: 5%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .button_res_mannequin {
+        all: unset;
+        font-size: 20px;
+        font-family: "Open Sans", sans-serif;
+        text-transform: uppercase;
+        font-weight: 600;
+        background: linear-gradient(90deg, rgba(25,230,41,1) 0%, rgba(84,234,95,1) 100%);
+        border: none;
+        border-radius: 1000px;
+        box-shadow: 12px 12px 24px rgba(84,234,95,.64);
+        transition: all 0.2s ease-in-out 0s;
+        cursor: pointer;
+        outline: none;
+        position: relative;
+        padding: 10px;
+      }
+      .signal_alerte{
+        background: linear-gradient(90deg, rgba(244,240,4,1) 0%, rgba(245,243,77,1) 100%);
+        box-shadow: 12px 12px 24px rgba(245,243,77,.64);
+      }
+      .signal_danger{
+        background: linear-gradient(90deg, rgba(232,131,106,1) 0%, rgba(231,111,81,1) 100%);
+        box-shadow: 12px 12px 24px rgba(231,111,81,.64);
+      }
+      .button_res_mannequin:hover{
+        font-size: 20px;
+        box-shadow: none;
+        background: none;
+      }
+      .button_res_mannequin::before {
+        align-items: center;
+        text-align: center;
+        font-size: 2px;
+        line-height: 40px;
+        border-radius: 1000px;
+        min-width: calc(8px + 12px);
+        max-height: 40px;
+        background-color: rgba(150,150,150,0.7);
+        border: 3px solid rgba(84,234,95,1);
+        box-shadow: 0 0 40px rgba(84,234,95,0.7);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: all .3s ease-in-out 0s;
+      }
+      .point_yeux::before{
+        content: "➕ Vos yeux : détail";
+      }
+      .point_cervicales::before{
+        content: "➕ Vos cervicales : détail";
+      }
+      .point_epaule::before{
+        content: "➕ Vos épaules : détail";
+      }
+      .signal_alerte::before {
+        border: 3px solid rgba(245,243,77,1);
+        box-shadow: 0 0 40px rgba(245,243,77,0.7);
+      }
+      .signal_danger::before {
+        border: 3px solid rgba(231,111,81,1);
+        box-shadow: 0 0 40px rgba(231,111,81,0.7);
+      }
+      .button_res_mannequin:hover, .button_res_mannequin:focus {
+        color: #313133;
+        transform: translateY(-6px);
+      }
+      .button_res_mannequin:hover::before {
+        font-size: 18px;
+        min-width: calc(250px + 12px);
+        opacity: 1;
+      }
+      .point_cervicales:hover::before {
+          min-width: calc(300px + 12px);
+      }
+      .point_epaule:hover::before {
+          min-width: calc(280px + 12px);
+      }
+      .button_res_mannequin::after {
+        content: '';
+        width: 20px; height: 20px;
+        border-radius: 100%;
+        border: 4px solid rgba(84,234,95,1);
+        position: absolute;
+        z-index: -1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: ring 1.5s infinite;
+      }
+      .signal_alerte::after{
+        border: 4px solid rgba(245,243,77,1);
+      }
+      .signal_danger::after{
+        border: 4px solid rgba(231,111,81,1);
+      }
+      .button_res_mannequin:hover::after {
+        animation: none;
+        display: none;
+      }
+      @keyframes ring {
+        0% {
+          width: 20px;
+          height: 20px;
+          opacity: 1;
+        }
+        100% {
+          width: 70px;
+          height: 70px;
+          opacity: 0;
+        }
+      }
+    </style>
+  </body>
+</html>
