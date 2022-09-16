@@ -5,7 +5,8 @@
     <title>Poste de travail</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="informations.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
   </head>
   <body>
 
@@ -712,17 +713,21 @@
       }
 
       function generatePDF() {
-       var doc = new jsPDF();  //create jsPDF object
-        doc.fromHTML(document.getElementById("partie_resultats"), // page element which you want to print as PDF
-        15,
-        15,
-        {
-          'width': 170  //set width
-        },
-        function(a)
-         {
-          doc.save("HTML2PDF.pdf"); // save file name as HTML2PDF.pdf
-        });
+
+        // Choose the element id which you want to export.
+        var element = document.getElementById('partie_resultats');
+        element.style.width = '100%';
+        element.style.height = '100%';
+        var opt = {
+            margin:       0.5,
+            filename:     'myfile.pdf',
+            image:        { type: 'jpeg', quality: 1 },
+            html2canvas:  { scale: 1 },
+            jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait',precision: '12' }
+          };
+
+        // choose the element and pass it to html2pdf() function and call the save() on it to save as pdf.
+        html2pdf().from(element).save('myfile.pdf');
       }
     </script>
 
