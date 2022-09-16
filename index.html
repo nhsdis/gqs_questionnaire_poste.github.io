@@ -5,6 +5,7 @@
     <title>Poste de travail</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="informations.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js" ></script>
   </head>
   <body>
 
@@ -52,6 +53,7 @@
     <div class="" style="display: none;" id="titre_bilan">
       <h1 style="text-align: center; font-size: 45px;">📝 Mon bilan :</h1>
       <h3 style="text-align: center; opacity: 0.6;">🛈 Je clique sur chaque partie du corps pour<br>obtenir mes préconisations.</h3>
+      <button type="button" name="button" onclick="generatePDF()">Télécharger mon bilan</button>
     </div>
     <br>
 
@@ -234,7 +236,7 @@
       <!-- //// PARTIE RESULTATS ////-->
       <!-- ///////////////////////// -->
 
-      <div id="partie_resultats" style="text-align: center; display: none; width: 100%;" class="">
+      <div id="partie_resultats" style="text-align: center; display: none; width: 100%;" class="canvas_div_pdf">
         <div class="" style="position: fixed; left: 50%; top: 55%; transform: translate(-130%, -50%);">
           <div style="position: absolute; top: -210px; left: 271px;" class="wrap">
             <button id="point_res_yeux" style="z-index: 100; width: 20px; height: 20px;" class="button_res_mannequin point_yeux" onclick="gererParties('handle1')"></button>
@@ -708,6 +710,20 @@
         document.getElementById('terminer').style.display = 'none';
         document.getElementById('partie_resultats').style.display = 'inline-block';
       }
+
+      function generatePDF() {
+       var doc = new jsPDF();  //create jsPDF object
+        doc.fromHTML(document.getElementById("partie_resultats"), // page element which you want to print as PDF
+        15,
+        15,
+        {
+          'width': 170  //set width
+        },
+        function(a)
+         {
+          doc.save("HTML2PDF.pdf"); // save file name as HTML2PDF.pdf
+        });
+      }
     </script>
 
     <style media="screen">
@@ -895,7 +911,7 @@
       }
       .accordion .handle .label_sous_menu:before {
         content: "✔️";
-      }   
+      }
       .accordion .handle .preco:before {
         content: url(images/clique.png);
       }
