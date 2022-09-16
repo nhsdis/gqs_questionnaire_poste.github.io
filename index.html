@@ -713,20 +713,18 @@
       }
 
       function generatePDF() {
+        var opt = {
+            margin:0,
+            filename: 'myfile.pdf',
+            image: {type: 'jpeg',quality: 0.98},
+            html2canvas: {scale: 1},
+            jsPDF: {
+                unit: 'mm',
+                orientation: 'landscape'
+            }
+        };
 
-        var element = document.getElementById('export_pdf');
-          var opt = {
-              margin:0,
-              filename: 'myfile.pdf',
-              image: {type: 'jpeg',quality: 0.98},
-              html2canvas: {scale: 1},
-              jsPDF: {
-                  unit: 'mm',
-                  orientation: 'portrait'
-              }
-          };
-
-          html2pdf().set(opt).from(element).save();
+        html2pdf().set(opt).from(document.body).save();
       }
     </script>
 
