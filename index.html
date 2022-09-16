@@ -723,11 +723,11 @@
             filename:     'myfile.pdf',
             image:        { type: 'jpeg', quality: 1 },
             html2canvas:  { scale: 1 },
-            jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait',precision: '12' }
+            jsPDF:        { unit: 'in', format: 'letter', orientation: 'landscape',precision: '12' }
           };
 
         // choose the element and pass it to html2pdf() function and call the save() on it to save as pdf.
-        html2pdf().from(element).save('myfile.pdf');
+        html2pdf().from(element).save();
       }
     </script>
 
