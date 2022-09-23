@@ -372,18 +372,10 @@
         </div>
         <div class="" style="">
           <div class="" style="position: absolute; margin-left: 50%; transform: translateX(-223px); text-align: center;">
-            <div style="position: absolute; top: -160px; left: 198px;" class="wrap">
-              <button id="point_res_yeux" style="z-index: 100; width: 20px; height: 20px;" class=""></button>
-            </div>
-            <div style="position: absolute; top: -70px; left: 198px;" class="wrap">
-              <button id="point_res_cervicales" style="z-index: 100; width: 20px; height: 20px;" class=""></button>
-            </div>
-            <div style="position: absolute; top: 10px; left: 70px;" class="wrap">
-              <button id="point_res_epaules" style="z-index: 100; width: 20px; height: 20px;" class=""></button>
-            </div>
-            <div style="position: absolute; top: 10px; left: 335px;" class="wrap">
-              <button id="point_res_epaules2" style="z-index: 100; width: 20px; height: 20px;" class=""></button>
-            </div>
+            <div id="point_res_yeux_pdf" style="z-index: 100; width: 20px; height: 20px; background-color: #54EA5F; position: absolute; top: -160px; left: 198px;" class=""></div>
+            <div id="point_res_cervicales_pdf" style="z-index: 100; width: 20px; height: 20px; background-color: #54EA5F; position: absolute; top: -70px; left: 198px;" class=""></div>
+            <div id="point_res_epaules_pdf" style="z-index: 100; width: 20px; height: 20px; background-color: #54EA5F; position: absolute; top: 10px; left: 70px;" class=""></div>
+            <div id="point_res_epaules_pdf2" style="z-index: 100; width: 20px; height: 20px; background-color: #54EA5F; position: absolute; top: 10px; left: 335px;" class=""></div>
             <img src="images/mannequin_buste.png" style="margin: 0 auto;" height="600" width="450" alt="">
           </div>
         </div>
@@ -670,6 +662,11 @@
         var point_infos_yeux = document.getElementById('point_infos_yeux');
         var point_infos_cervicales = document.getElementById('point_infos_cervicales');
         var point_infos_epaules = document.getElementById('point_infos_epaules');
+
+        var point_res_cervicales_pdf = document.getElementById('point_res_cervicales_pdf');
+        var point_res_yeux_pdf = document.getElementById('point_res_yeux_pdf');
+        var point_res_epaules_pdf = document.getElementById('point_res_epaules_pdf');
+        var point_res_epaules_pdf2 = document.getElementById('point_res_epaules_pdf2');
         var point_infos_yeux_pdf = document.getElementById('point_infos_yeux_pdf');
         var point_infos_cervicales_pdf = document.getElementById('point_infos_cervicales_pdf');
         var point_infos_epaules_pdf = document.getElementById('point_infos_epaules_pdf');
@@ -727,11 +724,13 @@
 
         if(liste_scores[0][2] == 1){
           point_res_cervicales.classList.add("signal_alerte");
+          point_res_cervicales_pdf.classList.add("signal_alerte");
           point_infos_cervicales.style.backgroundColor = '#F5F34D';
           point_infos_cervicales_pdf.style.backgroundColor = '#F5F34D';
           document.getElementById('leg_reg_med').style.display = "flex";
         } else if(liste_scores[0][2] == 2){
           point_res_cervicales.classList.add("signal_danger");
+          point_res_cervicales_pdf.classList.add("signal_danger");
           point_infos_cervicales.style.backgroundColor = '#E76F51';
           point_infos_cervicales_pdf.style.backgroundColor = '#E76F51';
           document.getElementById('leg_reg_nul').style.display = "flex";
@@ -739,11 +738,13 @@
 
         if(liste_scores[1][2] == 1){
           point_res_yeux.classList.add("signal_alerte");
+          point_res_yeux_pdf.classList.add("signal_alerte");
           point_infos_yeux.style.backgroundColor = '#F5F34D';
           point_infos_yeux_pdf.style.backgroundColor = '#F5F34D';
           document.getElementById('leg_reg_med').style.display = "flex";
         } else if(liste_scores[1][2] == 2){
           point_res_yeux.classList.add("signal_danger");
+          point_res_yeux_pdf.classList.add("signal_danger");
           point_infos_yeux.style.backgroundColor = '#E76F51';
           point_infos_yeux_pdf.style.backgroundColor = '#E76F51';
           document.getElementById('leg_reg_nul').style.display = "flex";
@@ -751,13 +752,17 @@
 
         if(liste_scores[2][3] > 0 && liste_scores[2][3] < 3){
           point_res_epaules.classList.add("signal_alerte");
+          point_res_epaules_pdf.classList.add("signal_alerte");
           point_res_epaules2.classList.add("signal_alerte");
+          point_res_epaules_pdf2.classList.add("signal_alerte");
           point_infos_epaules.style.backgroundColor = '#F5F34D';
           point_infos_epaules_pdf.style.backgroundColor = '#F5F34D';
           document.getElementById('leg_reg_med').style.display = "flex";
         } else if(liste_scores[2][3] > 2){
           point_res_epaules.classList.add("signal_danger");
+          point_res_epaules_pdf.classList.add("signal_danger");
           point_res_epaules2.classList.add("signal_danger");
+          point_res_epaules_pdf2.classList.add("signal_danger");
           point_infos_epaules.style.backgroundColor = '#E76F51';
           point_infos_epaules_pdf.style.backgroundColor = '#E76F51';
           document.getElementById('leg_reg_nul').style.display = "flex";
