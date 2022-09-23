@@ -379,7 +379,7 @@
             <img src="images/mannequin_buste.png" style="margin: 0 auto;" height="600" width="450" alt="">
           </div>
         </div>
-        <div class="" style="text-align: center; width: 30%; margin: 0 auto; margin-top: 700px;">
+        <div class="" style="text-align: center; width: 70%; margin: 0 auto; margin-top: 700px;">
           <div class="" id="pdf_risques_yeux">
             <h3 style="display: flex; margin-left: 20%; align-items: center;"><div id="point_infos_yeux_pdf" style="width: 23px; height: 23px; border-radius: 100px; background-color: #54EA5F; margin-right: 2%;"></div> Mes yeux</h3>
           </div>
@@ -678,16 +678,19 @@
           document.getElementById('qu1').style.color = '#D0342C';
           document.getElementById('handle31').checked = true;
 	        document.getElementById('qu1').classList.add("preco");
-          document.getElementById('pdf_risques_cervicales').innerHTML += '<h4>⚠️ L\'écran principal :<br>' + infosCervicales.question1 + '</h4>';
+          document.getElementById('pdf_risques_cervicales').innerHTML += '<h3>⚠️ L\'écran principal :</h3>';
+          document.getElementById('pdf_risques_cervicales').innerHTML += '<h4 style="font-weight: normal">' + infosCervicales.question1 + '</h4>';
         }
         if(liste_scores[0][1] == 1){
           document.getElementById('qu2').style.color = '#D0342C';
           document.getElementById('handle32').checked = true;
 	        document.getElementById('qu2').classList.add("preco");
           if(verres_pro == "verres_pro_oui"){
-            document.getElementById('pdf_risques_cervicales').innerHTML += '<h4>⚠️ Réglage de l\'écran :<br>' + infosCervicales.question2_verres_pro + '</h4>';
+            document.getElementById('pdf_risques_cervicales').innerHTML += '<h3>⚠️ Réglage de l\'écran :</h3>';
+            document.getElementById('pdf_risques_cervicales').innerHTML += '<h4 style="font-weight: normal">' + infosCervicales.question2_verres_pro + '</h4>';
           } else {
-            document.getElementById('pdf_risques_cervicales').innerHTML += '<h4>⚠️ Réglage de l\'écran :<br>' + infosCervicales.question2_sans_verres_pro + '</h4>';
+            document.getElementById('pdf_risques_cervicales').innerHTML += '<h3>⚠️ Réglage de l\'écran :</h3>';
+            document.getElementById('pdf_risques_cervicales').innerHTML += '<h4 style="font-weight: normal">' + infosCervicales.question2_sans_verres_pro + '</h4>';
           }
         }
         // Yeux
@@ -695,32 +698,37 @@
           document.getElementById('qu3').style.color = '#D0342C';
           document.getElementById('handle11').checked = true;
 	        document.getElementById('qu3').classList.add("preco");
-          document.getElementById('pdf_risques_yeux').innerHTML += '<h4>⚠️ Les fenêtres :<br>' + infosYeux.question1 + '</h4>';
+          document.getElementById('pdf_risques_yeux').innerHTML += '<h3>⚠️ Les fenêtres :</h3>';
+          document.getElementById('pdf_risques_yeux').innerHTML += '<h4 style="font-weight: normal">' + infosYeux.question1 + '</h4>';
         }
         if(liste_scores[1][1] == 1){
           document.getElementById('qu4').style.color = '#D0342C';
           document.getElementById('handle12').checked = true;
 	        document.getElementById('qu4').classList.add("preco");
-          document.getElementById('pdf_risques_yeux').innerHTML += '<h4>⚠️ La lumière bleue :<br>' + infosYeux.question2 + '</h4>';
+          document.getElementById('pdf_risques_yeux').innerHTML += '<h3>⚠️ La lumière bleue :</h3>';
+          document.getElementById('pdf_risques_yeux').innerHTML += '<h4 style="font-weight: normal">' + infosYeux.question2 + '</h4>';
         }
         // Epaules
         if(liste_scores[2][0] == 1){
           document.getElementById('qu5').style.color = '#D0342C';
           document.getElementById('handle21').checked = true;
 	        document.getElementById('qu5').classList.add("preco");
-          document.getElementById('pdf_risques_epaules').innerHTML += '<h4>⚠️ Vos avant bras :<br>' + infosEpaules.question1 + '</h4>';
+          document.getElementById('pdf_risques_epaules').innerHTML += '<h3>⚠️ Vos avant bras :</h3>';
+          document.getElementById('pdf_risques_epaules').innerHTML += '<h4 style="font-weight: normal">' + infosEpaules.question1 + '</h4>';
         }
         if(liste_scores[2][1] == 1){
           document.getElementById('qu6').style.color = '#D0342C';
           document.getElementById('handle22').checked = true;
 	        document.getElementById('qu6').classList.add("preco");
-          document.getElementById('pdf_risques_epaules').innerHTML += '<h4>⚠️ Votre souris :<br>' + infosEpaules.question2 + '</h4>';
+          document.getElementById('pdf_risques_epaules').innerHTML += '<h3>⚠️ Votre souris :</h3>';
+          document.getElementById('pdf_risques_epaules').innerHTML += '<h4 style="font-weight: normal">' + infosEpaules.question2 + '</h4>';
         }
         if(liste_scores[2][2] == 1){
           document.getElementById('qu7').style.color = '#D0342C';
           document.getElementById('handle23').checked = true;
           document.getElementById('qu7').classList.add("preco");
-          document.getElementById('pdf_risques_epaules').innerHTML += '<h4>⚠️ Votre clavier :<br>' + infosEpaules.question3 + '</h4>';
+          document.getElementById('pdf_risques_epaules').innerHTML += '<h3>⚠️ Votre clavier :</h3>';
+          document.getElementById('pdf_risques_epaules').innerHTML += '<h4 style="font-weight: normal">' + infosEpaules.question3 + '</h4>';
         }
 
         if(liste_scores[2][3] == 0 || liste_scores[0][2] == 0 || liste_scores[1][2] == 0){
