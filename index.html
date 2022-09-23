@@ -643,6 +643,7 @@
 
       function terminer(){
         var liste_scores = evaluer();
+        var verres_pro = document.querySelector('input[name="verres_pro"]:checked') ? document.querySelector('input[name="verres_pro"]:checked').value : "";
 
         document.getElementById('progression_barre').style.left = '0%';
         document.getElementById('titre_bilan').style.display = 'block';
@@ -677,45 +678,49 @@
           document.getElementById('qu1').style.color = '#D0342C';
           document.getElementById('handle31').checked = true;
 	        document.getElementById('qu1').classList.add("preco");
-          document.getElementById('pdf_risques_cervicales').innerHTML += '<h4>⚠️ L\'écran principal</h4>';
+          document.getElementById('pdf_risques_cervicales').innerHTML += '<h4>⚠️ L\'écran principal :<br>' + infosCervicales.question1 + '</h4>';
         }
         if(liste_scores[0][1] == 1){
           document.getElementById('qu2').style.color = '#D0342C';
           document.getElementById('handle32').checked = true;
 	        document.getElementById('qu2').classList.add("preco");
-          document.getElementById('pdf_risques_cervicales').innerHTML += '<h4>⚠️ Réglage de l\'écran</h4>';
+          if(verres_pro == "verres_pro_oui"){
+            document.getElementById('pdf_risques_cervicales').innerHTML += '<h4>⚠️ Réglage de l\'écran :<br>' + infosCervicales.question2_verres_pro + '</h4>';
+          } else {
+            document.getElementById('pdf_risques_cervicales').innerHTML += '<h4>⚠️ Réglage de l\'écran :<br>' + infosCervicales.question2_sans_verres_pro + '</h4>';
+          }
         }
         // Yeux
         if(liste_scores[1][0] == 1){
           document.getElementById('qu3').style.color = '#D0342C';
           document.getElementById('handle11').checked = true;
 	        document.getElementById('qu3').classList.add("preco");
-          document.getElementById('pdf_risques_yeux').innerHTML += '<h4>⚠️ Les fenêtres</h4>';
+          document.getElementById('pdf_risques_yeux').innerHTML += '<h4>⚠️ Les fenêtres :<br>' + infosYeux.question1 + '</h4>';
         }
         if(liste_scores[1][1] == 1){
           document.getElementById('qu4').style.color = '#D0342C';
           document.getElementById('handle12').checked = true;
 	        document.getElementById('qu4').classList.add("preco");
-          document.getElementById('pdf_risques_yeux').innerHTML += '<h4>⚠️ La lumière bleue</h4>';
+          document.getElementById('pdf_risques_yeux').innerHTML += '<h4>⚠️ La lumière bleue :<br>' + infosYeux.question2 + '</h4>';
         }
         // Epaules
         if(liste_scores[2][0] == 1){
           document.getElementById('qu5').style.color = '#D0342C';
           document.getElementById('handle21').checked = true;
 	        document.getElementById('qu5').classList.add("preco");
-          document.getElementById('pdf_risques_epaules').innerHTML += '<h4>⚠️ Vos avant bras</h4>';
+          document.getElementById('pdf_risques_epaules').innerHTML += '<h4>⚠️ Vos avant bras :<br>' + infosEpaules.question1 + '</h4>';
         }
         if(liste_scores[2][1] == 1){
           document.getElementById('qu6').style.color = '#D0342C';
           document.getElementById('handle22').checked = true;
 	        document.getElementById('qu6').classList.add("preco");
-          document.getElementById('pdf_risques_epaules').innerHTML += '<h4>⚠️ Votre souris</h4>';
+          document.getElementById('pdf_risques_epaules').innerHTML += '<h4>⚠️ Votre souris :<br>' + infosEpaules.question2 + '</h4>';
         }
         if(liste_scores[2][2] == 1){
           document.getElementById('qu7').style.color = '#D0342C';
           document.getElementById('handle23').checked = true;
           document.getElementById('qu7').classList.add("preco");
-          document.getElementById('pdf_risques_epaules').innerHTML += '<h4>⚠️ Votre clavier</h4>';
+          document.getElementById('pdf_risques_epaules').innerHTML += '<h4>⚠️ Votre clavier :<br>' + infosEpaules.question3 + '</h4>';
         }
 
         if(liste_scores[2][3] == 0 || liste_scores[0][2] == 0 || liste_scores[1][2] == 0){
