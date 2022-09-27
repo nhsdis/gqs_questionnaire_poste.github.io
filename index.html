@@ -364,7 +364,7 @@
       <!-- //// PARTIE PDF RESULTATS ////-->
       <!-- ///////////////////////////// -->
 
-      <div id="save_pdf" class="" style="display: none;">
+      <div id="save_pdf" class="" style="display: none; opacity: 0;">
         <div class="">
           <img src="images/logo.png" style="position: absolute; left: 2%;" height="110" width="109" alt="">
           <h1 style="text-align: center; font-size: 45px;">📝 Mon bilan :</h1>
@@ -790,12 +790,12 @@
 
       function generatePDF() {
         var opt = {
-            margin:3,
+            margin:[30, 0, 30, 0],
             filename: 'myfile.pdf',
-            image: {type: 'jpeg',quality: 0.98},
+            image: {type: 'jpeg',quality: 1},
             html2canvas: {scale: 1},
             jsPDF: {
-                unit: 'mm',
+                unit: 'pt',
                 orientation: 'portrait'
             }
         };
