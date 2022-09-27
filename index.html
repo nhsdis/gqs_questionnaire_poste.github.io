@@ -670,9 +670,9 @@
         var point_res_yeux_pdf = document.getElementById('point_res_yeux_pdf');
         var point_res_epaules_pdf = document.getElementById('point_res_epaules_pdf');
         var point_res_epaules_pdf2 = document.getElementById('point_res_epaules_pdf2');
-        var point_infos_yeux_pdf = document.getElementById('point_infos_yeux_pdf');
-        var point_infos_cervicales_pdf = document.getElementById('point_infos_cervicales_pdf');
-        var point_infos_epaules_pdf = document.getElementById('point_infos_epaules_pdf');
+        var point_yeux_pdf = document.getElementById('point_infos_yeux_pdf');
+        var point_cervicales_pdf = document.getElementById('point_infos_cervicales_pdf');
+        var point_epaules_pdf = document.getElementById('point_infos_epaules_pdf');
 
         // METTRE EN AVANT LES PROBLEMES
         // Cervicales
@@ -741,13 +741,13 @@
           point_res_cervicales.classList.add("signal_alerte");
           point_res_cervicales_pdf.classList.add("signal_alerte");
           point_infos_cervicales.style.backgroundColor = '#F5F34D';
-          point_infos_cervicales_pdf.style.backgroundColor = '#F5F34D';
+          point_cervicales_pdf.style.backgroundColor = '#F5F34D';
           document.getElementById('leg_reg_med').style.display = "flex";
         } else if(liste_scores[0][2] == 2){
           point_res_cervicales.classList.add("signal_danger");
           point_res_cervicales_pdf.classList.add("signal_danger");
           point_infos_cervicales.style.backgroundColor = '#E76F51';
-          point_infos_cervicales_pdf.style.backgroundColor = '#E76F51';
+          point_cervicales_pdf.style.backgroundColor = '#E76F51';
           document.getElementById('leg_reg_nul').style.display = "flex";
         }
 
@@ -755,13 +755,13 @@
           point_res_yeux.classList.add("signal_alerte");
           point_res_yeux_pdf.classList.add("signal_alerte");
           point_infos_yeux.style.backgroundColor = '#F5F34D';
-          point_infos_yeux_pdf.style.backgroundColor = '#F5F34D';
+          point_yeux_pdf.style.backgroundColor = '#F5F34D';
           document.getElementById('leg_reg_med').style.display = "flex";
         } else if(liste_scores[1][2] == 2){
           point_res_yeux.classList.add("signal_danger");
           point_res_yeux_pdf.classList.add("signal_danger");
           point_infos_yeux.style.backgroundColor = '#E76F51';
-          point_infos_yeux_pdf.style.backgroundColor = '#E76F51';
+          point_yeux_pdf.style.backgroundColor = '#E76F51';
           document.getElementById('leg_reg_nul').style.display = "flex";
         }
 
@@ -771,7 +771,7 @@
           point_res_epaules2.classList.add("signal_alerte");
           point_res_epaules_pdf2.classList.add("signal_alerte");
           point_infos_epaules.style.backgroundColor = '#F5F34D';
-          point_infos_epaules_pdf.style.backgroundColor = '#F5F34D';
+          point_epaules_pdf.style.backgroundColor = '#F5F34D';
           document.getElementById('leg_reg_med').style.display = "flex";
         } else if(liste_scores[2][3] > 2){
           point_res_epaules.classList.add("signal_danger");
@@ -779,7 +779,7 @@
           point_res_epaules2.classList.add("signal_danger");
           point_res_epaules_pdf2.classList.add("signal_danger");
           point_infos_epaules.style.backgroundColor = '#E76F51';
-          point_infos_epaules_pdf.style.backgroundColor = '#E76F51';
+          point_epaules_pdf.style.backgroundColor = '#E76F51';
           document.getElementById('leg_reg_nul').style.display = "flex";
         }
 
@@ -793,12 +793,13 @@
         var opt = {
             margin:[30, 0, 30, 0],
             filename: 'myfile.pdf',
-            image: {type: 'jpeg',quality: 1},
-            html2canvas: {scale: 1},
+            image: {type: 'jpeg',quality: 0.98},
+            html2canvas: {scale: 1.1, dpi: 192},
             jsPDF: {
-                unit: 'pt',
+                unit: 'mm',
                 orientation: 'portrait'
-            }
+            },
+            pagebreak: { mode: 'avoid-all', after: '.breakPage' }
         };
 
         html2pdf().set(opt).from(document.getElementById("test_save_pdf")).save();
